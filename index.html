@@ -1,0 +1,1363 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Mastery Academy</title>
+  <style>
+    :root {
+      --bg: #081018;
+      --bg-soft: #0f1a26;
+      --card: rgba(17, 28, 42, 0.88);
+      --card-2: rgba(12, 23, 34, 0.95);
+      --line: rgba(130, 170, 255, 0.15);
+      --text: #eef6ff;
+      --muted: #9fb3c8;
+      --accent: #64ffda;
+      --accent-2: #7aa2ff;
+      --danger: #ff6b6b;
+      --warning: #ffd166;
+      --success: #7dff9b;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+    }* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Tahoma", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(122,162,255,0.16), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(100,255,218,0.14), transparent 32%),
+    linear-gradient(135deg, #061019, #0a1622 40%, #07111a 100%);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+
+.container {
+  width: min(1200px, calc(100% - 28px));
+  margin: auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  background: rgba(5, 11, 18, 0.75);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  display: grid;
+  place-items: center;
+  color: #061019;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+}
+
+.brand small { display: block; color: var(--muted); font-weight: 400; }
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.nav a,
+.btn {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.nav a:hover,
+.btn:hover,
+.btn.active {
+  transform: translateY(-2px);
+  border-color: rgba(100,255,218,0.4);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.25);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #051018;
+  border: none;
+}
+
+.hero {
+  padding: 80px 0 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.hero-card,
+.glass,
+.lesson-card,
+.feature,
+.track,
+.accordion,
+.stat,
+.quiz-card,
+.terminal,
+.resource-card,
+.contact-card,
+.timeline-item,
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-card { padding: 32px; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(100,255,218,0.08);
+  border: 1px solid rgba(100,255,218,0.16);
+  color: var(--accent);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+h1, h2, h3, h4, p { margin-top: 0; }
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero p,
+.section-head p,
+.muted { color: var(--muted); }
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.stat { padding: 18px; }
+.stat strong { display: block; font-size: 1.7rem; margin-bottom: 6px; }
+.hero-side { display: grid; gap: 18px; }
+.glass { padding: 22px; }
+
+.mini-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.badge {
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.03);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+section { padding: 34px 0; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.feature, .track, .resource-card, .project-card, .contact-card, .quiz-card, .timeline-item {
+  padding: 22px;
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, rgba(122,162,255,0.25), rgba(100,255,218,0.18));
+  border: 1px solid var(--line);
+  font-size: 1.35rem;
+}
+
+.course-filters,
+.lesson-tabs,
+.quiz-actions,
+.terminal-actions,
+.projects-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  color: var(--text);
+  outline: none;
+  font-size: 1rem;
+}
+
+.tracks-grid,
+.lessons-grid,
+.resources-grid,
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.track {
+  position: relative;
+  overflow: hidden;
+}
+
+.track .level {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(100,255,218,0.14);
+  color: var(--accent);
+  border: 1px solid rgba(100,255,218,0.2);
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.list li {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  color: #d7e6f8;
+}
+
+.roadmap {
+  display: grid;
+  gap: 16px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-inline-start: 72px;
+}
+
+.timeline-item::before {
+  content: attr(data-step);
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #051018;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+
+.accordion-wrap { display: grid; gap: 14px; }
+.accordion button {
+  width: 100%;
+  padding: 18px 20px;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  text-align: right;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.accordion .content {
+  display: none;
+  padding: 0 20px 20px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.accordion.open .content { display: block; }
+
+.progress-wrap {
+  background: rgba(255,255,255,0.05);
+  border-radius: 999px;
+  height: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  margin: 10px 0 18px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 0.4s ease;
+}
+
+.terminal {
+  overflow: hidden;
+}
+
+.terminal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid var(--line);
+}
+
+.dots { display: flex; gap: 8px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green { background: #28c840; }
+
+.terminal-body {
+  font-family: Consolas, monospace;
+  min-height: 280px;
+  padding: 18px;
+  background: #050b12;
+  color: #bdfcc9;
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+
+.terminal-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-top: 1px solid var(--line);
+  background: #07111a;
+  color: #f3fbff;
+  outline: none;
+  font-family: Consolas, monospace;
+}
+
+.lesson-card { padding: 20px; display: none; }
+.lesson-card.active { display: block; }
+
+.quiz-question {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+.answers {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.answers button {
+  width: 100%;
+  text-align: right;
+}
+
+.score-box {
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+}
+
+.footer {
+  margin-top: 22px;
+  padding: 26px 0 40px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(12, 23, 34, 0.96);
+  color: var(--text);
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transform: translateY(120px);
+  transition: 0.35s ease;
+  z-index: 2000;
+  max-width: 340px;
+}
+
+.toast.show { transform: translateY(0); }
+
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(2, 8, 15, 0.82);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  backdrop-filter: blur(14px);
+}
+
+.welcome-card {
+  width: min(700px, 100%);
+  background: linear-gradient(180deg, rgba(18, 32, 48, 0.96), rgba(8, 18, 28, 0.96));
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 32px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.welcome-card h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.welcome-card .expert {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--accent);
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.telegram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.05);
+  word-break: break-all;
+}
+
+.hidden { display: none !important; }
+
+@media (max-width: 980px) {
+  .hero-grid,
+  .grid-3,
+  .tracks-grid,
+  .resources-grid,
+  .projects-grid,
+  .grid-2,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats { grid-template-columns: 1fr; }
+  .topbar-inner { flex-direction: column; }
+  .nav { justify-content: flex-start; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-card">
+      <div class="eyebrow">بوابة الدخول الرسمية</div>
+      <h2>مرحباً بك في منصة تعلم بايثون</h2>
+      <div class="expert">Albert Gonzalez</div>
+      <p class="muted">منصة تعليمية متكاملة لتعلّم Python من الصفر حتى الاحتراف، مع دروس، مشاريع، اختبارات، ومحاكي أوامر تفاعلي.</p>
+      <a class="telegram-link" href="https://t.me/KaliLinux_Arabic" target="_blank" rel="noopener noreferrer">القناة الرسمية: https://t.me/KaliLinux_Arabic</a>
+      <div class="cta-row" style="justify-content:center; margin-top:22px;">
+        <button class="btn primary" onclick="closeWelcome()">دخول الموقع</button>
+        <button class="btn" onclick="window.open('https://t.me/KaliLinux_Arabic','_blank')">فتح القناة</button>
+      </div>
+    </div>
+  </div>  <div class="toast" id="toast"></div>  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo">Py</div>
+        <div>
+          Python Mastery Academy
+          <small>من الصفر إلى الاحتراف</small>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#home">الرئيسية</a>
+        <a href="#tracks">المسارات</a>
+        <a href="#roadmap">الخطة</a>
+        <a href="#lessons">الدروس</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#quiz">الاختبار</a>
+        <a href="#terminal">المحاكي</a>
+        <a href="#faq">الأسئلة</a>
+        <a href="#contact">التواصل</a>
+      </nav>
+    </div>
+  </header>  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">تعليم احترافي • واجهة قوية • أزرار تعمل</div>
+          <h1>تعلّم <span style="color:var(--accent)">Python</span> من البداية حتى بناء مشاريع حقيقية</h1>
+          <p>
+            هذا الموقع مصمم كمنصة تعليمية كاملة: شرح نظري، تدريبات عملية، دروس تفاعلية، اختبار مباشر،
+            محاكي أوامر، مصادر مفيدة، وخطة تعلم منظمة للانتقال من مبتدئ إلى محترف.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#tracks">ابدأ الآن</a>
+            <button class="btn" onclick="scrollToSection('lessons')">أول درس</button>
+            <button class="btn" onclick="toggleThemeStyle()">تبديل الإضاءة</button>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <strong>4</strong>
+              <span class="muted">مراحل تعليمية</span>
+            </div>
+            <div class="stat">
+              <strong>12+</strong>
+              <span class="muted">درس تفاعلي</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span class="muted">أزرار فعّالة</span>
+            </div>
+          </div>
+        </div><div class="hero-side">
+      <div class="glass">
+        <h3>لماذا هذا الموقع قوي؟</h3>
+        <p class="muted">لأنه يجمع بين الشكل الاحترافي والمحتوى المنظم والتفاعل داخل صفحة HTML واحدة، بدون أي ملفات إضافية.</p>
+        <div class="mini-badges">
+          <span class="badge">HTML + CSS + JS</span>
+          <span class="badge">شرح منظم</span>
+          <span class="badge">اختبارات فورية</span>
+          <span class="badge">مشاريع عملية</span>
+          <span class="badge">واجهة عربية</span>
+        </div>
+      </div>
+      <div class="glass">
+        <h3>نتيجة التعلّم</h3>
+        <p class="muted">بنهاية المسار ستفهم أساسيات اللغة، البرمجة الكائنية، التعامل مع الملفات، المكتبات، الأتمتة، وتحليل البيانات بشكل تمهيدي.</p>
+        <button class="btn primary" onclick="showToast('تم تجهيز المسار الاحترافي بالكامل لك.')">عرض المسار</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>مميزات المنصة</h2>
+        <p>ترتيبات قوية ومصممة لتخلي الموقع مرتب وسهل واحترافي.</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <article class="feature">
+        <div class="icon">📘</div>
+        <h3>دورات مرتبة</h3>
+        <p class="muted">المحتوى مقسم إلى مستويات تبدأ بالمفاهيم الأساسية ثم التقدم تدريجياً إلى المشاريع والتطبيق العملي.</p>
+      </article>
+      <article class="feature">
+        <div class="icon">🧠</div>
+        <h3>شرح تعليمي واضح</h3>
+        <p class="muted">كل درس يشرح الفكرة، ثم يعرض مثالاً، ثم يوضح الاستخدام العملي الحقيقي.</p>
+      </article>
+      <article class="feature">
+        <div class="icon">⚙️</div>
+        <h3>تفاعل كامل</h3>
+        <p class="muted">الأزرار تعمل، التبويبات تعمل، الاختبار يعمل، البحث يعمل، والمحاكي يعطيك نتائج تعليمية مباشرة.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="tracks">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>المسارات التعليمية</h2>
+        <p>اختر المستوى المناسب وابدأ بالتدرج الصحيح.</p>
+      </div>
+      <div class="course-filters">
+        <button class="btn active filter-btn" data-filter="all">الكل</button>
+        <button class="btn filter-btn" data-filter="beginner">مبتدئ</button>
+        <button class="btn filter-btn" data-filter="intermediate">متوسط</button>
+        <button class="btn filter-btn" data-filter="advanced">متقدم</button>
+      </div>
+    </div>
+    <input id="courseSearch" class="search-box" type="text" placeholder="ابحث داخل المسارات مثل: المتغيرات، الدوال، المشاريع..." />
+    <div class="tracks-grid" id="tracksGrid" style="margin-top:16px;">
+      <article class="track" data-category="beginner" data-title="أساسيات بايثون والمتغيرات والجمل الشرطية">
+        <span class="level">مبتدئ</span>
+        <h3>أساسيات Python</h3>
+        <p class="muted">ابدأ من الصفر: التثبيت، المتغيرات، الأنواع، العمليات، الشرط، الحلقات.</p>
+        <ul class="list">
+          <li>فهم print و input</li>
+          <li>المتغيرات وأنواع البيانات</li>
+          <li>if / elif / else</li>
+          <li>for / while</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn primary" onclick="activateLesson('lesson1')">افتح الدرس</button>
+        </div>
+      </article>
+
+      <article class="track" data-category="beginner" data-title="الدوال والقوائم والقواميس">
+        <span class="level">مبتدئ</span>
+        <h3>بناء المنطق البرمجي</h3>
+        <p class="muted">تعلم كيف تنظم الكود وتكتب دوال وتستخدم القوائم والقواميس بكفاءة.</p>
+        <ul class="list">
+          <li>تعريف الدوال وتمرير القيم</li>
+          <li>List / Tuple / Set / Dictionary</li>
+          <li>التكرار على البيانات</li>
+          <li>حل مسائل صغيرة</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn primary" onclick="activateLesson('lesson3')">افتح الدرس</button>
+        </div>
+      </article>
+
+      <article class="track" data-category="intermediate" data-title="الملفات والاستثناءات والوحدات">
+        <span class="level">متوسط</span>
+        <h3>التعامل مع الملفات</h3>
+        <p class="muted">افتح الملفات، اقرأ البيانات، خزّن النتائج، وتعامل مع الأخطاء بثقة.</p>
+        <ul class="list">
+          <li>open و with</li>
+          <li>القراءة والكتابة</li>
+          <li>try / except</li>
+          <li>استيراد الموديولات</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn primary" onclick="activateLesson('lesson6')">افتح الدرس</button>
+        </div>
+      </article>
+
+      <article class="track" data-category="intermediate" data-title="البرمجة الكائنية OOP">
+        <span class="level">متوسط</span>
+        <h3>البرمجة الكائنية OOP</h3>
+        <p class="muted">ادخل مرحلة احتراف تنظيم البرامج باستخدام الكلاسات والخصائص والوراثة.</p>
+        <ul class="list">
+          <li>class و object</li>
+          <li>__init__</li>
+          <li>Encapsulation</li>
+          <li>Inheritance</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn primary" onclick="activateLesson('lesson8')">افتح الدرس</button>
+        </div>
+      </article>
+
+      <article class="track" data-category="advanced" data-title="الأتمتة ومشاريع سطر الأوامر">
+        <span class="level">متقدم</span>
+        <h3>الأتمتة وCLI</h3>
+        <p class="muted">ابنِ أدوات عملية، تعامل مع الملفات، أنشئ سكربتات توفر الوقت والمجهود.</p>
+        <ul class="list">
+          <li>أتمتة مهام يومية</li>
+          <li>التعامل مع مسارات الملفات</li>
+          <li>تنظيم المشاريع</li>
+          <li>سكريبتات قابلة للتوسع</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn primary" onclick="activateLesson('lesson10')">افتح الدرس</button>
+        </div>
+      </article>
+
+      <article class="track" data-category="advanced" data-title="مقدمة في تحليل البيانات والمكتبات">
+        <span class="level">متقدم</span>
+        <h3>مقدمة تحليل البيانات</h3>
+        <p class="muted">تعرف على عالم المكتبات مثل NumPy وPandas وMatplotlib بشكل تمهيدي واضح.</p>
+        <ul class="list">
+          <li>فهم المصفوفات</li>
+          <li>قراءة الجداول</li>
+          <li>تنظيف البيانات</li>
+          <li>عرض النتائج</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn primary" onclick="activateLesson('lesson12')">افتح الدرس</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>الخطة من الصفر إلى الاحتراف</h2>
+        <p>خريطة طريق مختصرة تساعدك تمشي بشكل صحيح.</p>
+      </div>
+    </div>
+    <div class="roadmap">
+      <article class="timeline-item" data-step="1">
+        <h3>ابدأ بالمفاهيم الأساسية</h3>
+        <p class="muted">تعلّم المتغيرات، الأنواع، الجمل الشرطية، الحلقات، والدوال. هذه هي القاعدة التي يبنى عليها كل شيء.</p>
+      </article>
+      <article class="timeline-item" data-step="2">
+        <h3>تدرّب على حل مسائل صغيرة</h3>
+        <p class="muted">اكتب برامج للحساب، التحقق، الفرز، العد، والتعامل مع المستخدم.</p>
+      </article>
+      <article class="timeline-item" data-step="3">
+        <h3>انتقل إلى الملفات و OOP</h3>
+        <p class="muted">هنا تبدأ ببناء برامج منظمة أكثر، وتتعلم كيفية تقسيم المشروع بشكل احترافي.</p>
+      </article>
+      <article class="timeline-item" data-step="4">
+        <h3>ابنِ مشاريع حقيقية</h3>
+        <p class="muted">أفضل طريقة للاحتراف هي تحويل المعرفة إلى منتجات صغيرة قابلة للاستخدام.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="lessons">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>الدروس التعليمية</h2>
+        <p>اختر درساً من التبويبات. كل تبويب يعرض شرحاً عملياً.</p>
+      </div>
+      <div>
+        <span class="muted">التقدم في الدروس</span>
+        <div class="progress-wrap"><div class="progress-bar" id="lessonProgress"></div></div>
+      </div>
+    </div>
+
+    <div class="lesson-tabs">
+      <button class="btn active lesson-tab" data-target="lesson1">1. البداية</button>
+      <button class="btn lesson-tab" data-target="lesson2">2. الأنواع</button>
+      <button class="btn lesson-tab" data-target="lesson3">3. الدوال</button>
+      <button class="btn lesson-tab" data-target="lesson4">4. القوائم</button>
+      <button class="btn lesson-tab" data-target="lesson5">5. الشرط</button>
+      <button class="btn lesson-tab" data-target="lesson6">6. الملفات</button>
+      <button class="btn lesson-tab" data-target="lesson7">7. الأخطاء</button>
+      <button class="btn lesson-tab" data-target="lesson8">8. OOP</button>
+      <button class="btn lesson-tab" data-target="lesson9">9. الوحدات</button>
+      <button class="btn lesson-tab" data-target="lesson10">10. الأتمتة</button>
+      <button class="btn lesson-tab" data-target="lesson11">11. المشاريع</button>
+      <button class="btn lesson-tab" data-target="lesson12">12. البيانات</button>
+    </div>
+
+    <div class="lessons-grid">
+      <article class="lesson-card active" id="lesson1">
+        <h3>الدرس 1: أول خطوة في Python</h3>
+        <p class="muted">لغة Python سهلة القراءة وقوية جداً. أول أمر غالباً تتعلمه هو طباعة نص للمستخدم.</p>
+        <div class="list">
+          <li><code>print('Hello World')</code> يطبع النص.</li>
+          <li><code>input()</code> يأخذ إدخال من المستخدم.</li>
+          <li>ابدأ بكتابة برامج صغيرة جداً حتى تثبت الفكرة.</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson2">
+        <h3>الدرس 2: أنواع البيانات</h3>
+        <p class="muted">من أهم الأنواع: النصوص strings، الأعداد الصحيحة integers، الكسور floats، والقيم المنطقية booleans.</p>
+        <div class="list">
+          <li><code>name = 'Ali'</code></li>
+          <li><code>age = 21</code></li>
+          <li><code>price = 19.5</code></li>
+          <li><code>is_active = True</code></li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson3">
+        <h3>الدرس 3: الدوال</h3>
+        <p class="muted">الدوال تساعدك تعيد استخدام الكود بدل تكراره.</p>
+        <div class="list">
+          <li><code>def greet(name): return f'Hello {name}'</code></li>
+          <li>الدوال تستقبل parameters وترجع return.</li>
+          <li>كلما كبر مشروعك زادت أهمية تقسيمه إلى دوال.</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson4">
+        <h3>الدرس 4: القوائم والقواميس</h3>
+        <p class="muted">القائمة تخزن عناصر مرتبة، والقاموس يخزن بيانات على شكل مفتاح وقيمة.</p>
+        <div class="list">
+          <li><code>items = ['pen', 'book', 'phone']</code></li>
+          <li><code>user = {'name':'Ali', 'age':21}</code></li>
+          <li>تقدر تبحث وتضيف وتحذف وتعدل بسهولة.</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson5">
+        <h3>الدرس 5: الجمل الشرطية</h3>
+        <p class="muted">الشرط يخلي البرنامج يتخذ قرار حسب المدخلات.</p>
+        <div class="list">
+          <li><code>if age &gt;= 18:</code> السماح بالدخول</li>
+          <li><code>elif</code> لعدة احتمالات</li>
+          <li><code>else</code> للحالة الافتراضية</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson6">
+        <h3>الدرس 6: التعامل مع الملفات</h3>
+        <p class="muted">التعامل مع الملفات ضروري لتخزين البيانات وقراءتها من نصوص خارجية.</p>
+        <div class="list">
+          <li><code>with open('data.txt', 'r') as file:</code></li>
+          <li><code>content = file.read()</code></li>
+          <li>استخدم <code>with</code> حتى يغلق الملف تلقائياً.</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson7">
+        <h3>الدرس 7: معالجة الأخطاء</h3>
+        <p class="muted">ليس كل شيء يعمل دائماً، لذلك Python توفر try / except للتعامل مع الأعطال.</p>
+        <div class="list">
+          <li><code>try:</code> جرب التنفيذ</li>
+          <li><code>except:</code> التقط الخطأ</li>
+          <li><code>finally:</code> أوامر نهائية</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson8">
+        <h3>الدرس 8: OOP</h3>
+        <p class="muted">البرمجة الكائنية تنظم المشروع على شكل كائنات لها خصائص وسلوك.</p>
+        <div class="list">
+          <li><code>class Car:</code></li>
+          <li><code>def __init__(self, brand):</code></li>
+          <li>أنشئ كائنات متعددة من نفس الفئة.</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson9">
+        <h3>الدرس 9: الوحدات والمكتبات</h3>
+        <p class="muted">الموديولات تسمح لك بتقسيم البرامج، والمكتبات تضيف قدرات جاهزة.</p>
+        <div class="list">
+          <li><code>import math</code></li>
+          <li><code>from datetime import datetime</code></li>
+          <li>استخدم المكتبات لتسريع التطوير.</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson10">
+        <h3>الدرس 10: الأتمتة</h3>
+        <p class="muted">واحدة من أقوى استخدامات Python هي تنفيذ مهام متكررة بشكل تلقائي.</p>
+        <div class="list">
+          <li>إعادة تسمية الملفات</li>
+          <li>تنظيم المجلدات</li>
+          <li>إنشاء تقارير تلقائية</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson11">
+        <h3>الدرس 11: بناء المشاريع</h3>
+        <p class="muted">ابدأ دائماً بفكرة صغيرة، قسّمها إلى أجزاء، ثم ابْنِ واجهة منطقية نظيفة.</p>
+        <div class="list">
+          <li>حدد الهدف</li>
+          <li>ارسم التدفق</li>
+          <li>ابنِ نسخة أولية MVP</li>
+        </div>
+      </article>
+
+      <article class="lesson-card" id="lesson12">
+        <h3>الدرس 12: مدخل لتحليل البيانات</h3>
+        <p class="muted">هذا الباب يأخذك إلى مجالات أقوى مثل قراءة CSV وتحليل الجداول ورسم النتائج.</p>
+        <div class="list">
+          <li>NumPy للحسابات</li>
+          <li>Pandas للجداول</li>
+          <li>Matplotlib للرسوم البيانية</li>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>أفكار مشاريع عملية</h2>
+        <p>هذه المشاريع تساعدك تنتقل من التعلم إلى التطبيق.</p>
+      </div>
+      <div class="projects-actions">
+        <button class="btn" onclick="shuffleProjects()">تبديل الترتيب</button>
+        <button class="btn primary" onclick="showToast('ابدأ بمشروع آلة حاسبة أو مدير مهام ثم انتقل للأقوى.')">أفضل بداية</button>
+      </div>
+    </div>
+    <div class="projects-grid" id="projectsGrid">
+      <article class="project-card">
+        <h3>آلة حاسبة ذكية</h3>
+        <p class="muted">مشروع ممتاز لفهم المدخلات والعمليات والدوال.</p>
+      </article>
+      <article class="project-card">
+        <h3>مدير مهام يومي</h3>
+        <p class="muted">تعلم التخزين والتنظيم وإدارة القوائم.</p>
+      </article>
+      <article class="project-card">
+        <h3>قارئ ملفات نصية</h3>
+        <p class="muted">يدرّبك على فتح الملفات وتحليل محتواها.</p>
+      </article>
+      <article class="project-card">
+        <h3>مولد كلمات مرور</h3>
+        <p class="muted">يفيد في فهم المكتبات العشوائية والمنطق.</p>
+      </article>
+      <article class="project-card">
+        <h3>نظام تسجيل طلاب</h3>
+        <p class="muted">تطبّق عليه OOP والقوائم والبحث والتعديل.</p>
+      </article>
+      <article class="project-card">
+        <h3>محلل CSV بسيط</h3>
+        <p class="muted">بداية ممتازة قبل الدخول لعالم تحليل البيانات.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="container grid-2">
+    <div class="quiz-card">
+      <div class="section-head" style="margin-bottom:0;">
+        <div>
+          <h2>اختبار سريع</h2>
+          <p>جاوب وشوف مستواك الحالي.</p>
+        </div>
+      </div>
+      <div id="quizArea">
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="answers" id="quizAnswers"></div>
+        <div class="quiz-actions">
+          <button class="btn" onclick="nextQuestion()">السؤال التالي</button>
+          <button class="btn primary" onclick="restartQuiz()">إعادة الاختبار</button>
+        </div>
+      </div>
+    </div>
+    <div class="quiz-card">
+      <h3>النتيجة</h3>
+      <div class="score-box" id="scoreBox">ابدأ الاختبار لتظهر نتيجتك هنا.</div>
+      <div class="list" style="margin-top:16px;">
+        <li>0 - 1: تحتاج مراجعة الأساسيات</li>
+        <li>2 - 3: مستوى جيد كبداية</li>
+        <li>4 - 5: ممتاز وتقدر تنتقل للمشاريع</li>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="terminal">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>محاكي أوامر تعليمي</h2>
+        <p>اكتب أوامر تعليمية مثل: help أو print أو variables أو loops أو clear</p>
+      </div>
+      <div class="terminal-actions">
+        <button class="btn" onclick="runPreset('help')">مساعدة</button>
+        <button class="btn" onclick="runPreset('variables')">المتغيرات</button>
+        <button class="btn" onclick="runPreset('functions')">الدوال</button>
+        <button class="btn primary" onclick="runPreset('oop')">OOP</button>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="terminal-head">
+        <div class="dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <strong>Python Learning Shell</strong>
+      </div>
+      <div class="terminal-body" id="terminalOutput">مرحباً بك في المحاكي التعليمي.
+
+اكتب help لعرض الأوامر المتاحة.
+
+</div>
+          <input class="terminal-input" id="terminalInput" type="text" placeholder="> اكتب أمراً تعليمياً هنا ثم اضغط Enter" />
+        </div>
+      </div>
+    </section><section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>مصادر مفيدة داخل المنصة</h2>
+        <p>مختارات تساعدك على التعلم بشكل أذكى.</p>
+      </div>
+    </div>
+    <div class="resources-grid">
+      <article class="resource-card">
+        <h3>نصيحة 1</h3>
+        <p class="muted">لا تحفظ الكود حرفياً، افهم الفكرة ثم طبّقها بنفسك.</p>
+        <button class="btn" onclick="showToast('الفهم أهم من الحفظ دائماً.')">عرض</button>
+      </article>
+      <article class="resource-card">
+        <h3>نصيحة 2</h3>
+        <p class="muted">بعد كل درس، اكتب مثالاً خاصاً بك حتى تثبت المعلومة.</p>
+        <button class="btn" onclick="showToast('التطبيق بعد التعلم يثبت المهارة.')">عرض</button>
+      </article>
+      <article class="resource-card">
+        <h3>نصيحة 3</h3>
+        <p class="muted">ابدأ بمشاريع صغيرة جداً ثم وسّعها تدريجياً.</p>
+        <button class="btn primary" onclick="showToast('ابدأ صغيراً ثم كبر مشروعك بثبات.')">عرض</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>الأسئلة الشائعة</h2>
+        <p>شرح سريع لأكثر الأسئلة تكراراً.</p>
+      </div>
+    </div>
+    <div class="accordion-wrap">
+      <div class="accordion">
+        <button type="button">كم أحتاج وقت حتى أتعلم Python؟ <span>＋</span></button>
+        <div class="content">إذا كنت ملتزم يومياً، تقدر تفهم الأساسيات خلال أسابيع قليلة، لكن الاحتراف الحقيقي يأتي مع المشاريع والتكرار المستمر.</div>
+      </div>
+      <div class="accordion">
+        <button type="button">هل أبدأ بالمكتبات مباشرة؟ <span>＋</span></button>
+        <div class="content">لا. الأفضل تتقن الأساسيات أولاً: المتغيرات، الدوال، الحلقات، الشروط، ثم تنتقل للمكتبات والمشاريع.</div>
+      </div>
+      <div class="accordion">
+        <button type="button">ما أفضل طريقة لتثبيت المعلومة؟ <span>＋</span></button>
+        <div class="content">اكتب الكود بنفسك، عدّله، واكسر الأمثلة ثم أصلحها. التعلم بالممارسة هو الأسرع.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-card">
+      <h2>التواصل والقناة</h2>
+      <p class="muted">عند دخول المستخدم تظهر له هوية الخبير والقناة الرسمية، وتم دمجها هنا أيضاً لسهولة الوصول.</p>
+      <div class="list">
+        <li><strong>اسم الخبير:</strong> Albert Gonzalez</li>
+        <li><strong>القناة:</strong> <a href="https://t.me/KaliLinux_Arabic" target="_blank" rel="noopener noreferrer">https://t.me/KaliLinux_Arabic</a></li>
+        <li><strong>نوع الموقع:</strong> منصة تعليم Python كاملة في ملف واحد</li>
+      </div>
+      <div class="cta-row">
+        <button class="btn primary" onclick="window.open('https://t.me/KaliLinux_Arabic','_blank')">فتح القناة</button>
+        <button class="btn" onclick="document.getElementById('welcomeOverlay').classList.remove('hidden')">إعادة نافذة الترحيب</button>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>ماذا أضيف لك بعد هذا؟</h3>
+      <p class="muted">أقدر أطوّر لك النسخة القادمة بإضافة:</p>
+      <div class="list">
+        <li>لوحة إدارة كورسات</li>
+        <li>تسجيل دخول وملفات مستخدمين</li>
+        <li>حفظ التقدم عبر Local Storage أو قاعدة بيانات</li>
+        <li>شهادات إتمام، فيديوهات، ووضع مظلم متقدم</li>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer class="footer">
+    <div class="container">
+      <strong>Python Mastery Academy</strong>
+      <p>تصميم تعليمي متكامل بملف HTML واحد مع JavaScript وCSS مدمجين بالكامل.</p>
+    </div>
+  </footer>  <script>
+    const toast = document.getElementById('toast');
+    const overlay = document.getElementById('welcomeOverlay');
+    const courseSearch = document.getElementById('courseSearch');
+    const tracks = [...document.querySelectorAll('.track')];
+    const filterButtons = [...document.querySelectorAll('.filter-btn')];
+    const lessonTabs = [...document.querySelectorAll('.lesson-tab')];
+    const lessonCards = [...document.querySelectorAll('.lesson-card')];
+    const lessonProgress = document.getElementById('lessonProgress');
+    const terminalOutput = document.getElementById('terminalOutput');
+    const terminalInput = document.getElementById('terminalInput');
+    const projectsGrid = document.getElementById('projectsGrid');
+
+    let currentFilter = 'all';
+    let currentLesson = 'lesson1';
+    let visitedLessons = new Set(['lesson1']);
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    function closeWelcome() {
+      overlay.classList.add('hidden');
+      showToast('أهلاً بك، تم الدخول إلى المنصة.');
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function applyTrackFilter() {
+      const search = courseSearch.value.trim().toLowerCase();
+      tracks.forEach(track => {
+        const cat = track.dataset.category;
+        const title = track.dataset.title.toLowerCase();
+        const matchFilter = currentFilter === 'all' || currentFilter === cat;
+        const matchSearch = !search || title.includes(search);
+        track.style.display = (matchFilter && matchSearch) ? 'block' : 'none';
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        applyTrackFilter();
+      });
+    });
+
+    courseSearch.addEventListener('input', applyTrackFilter);
+
+    function activateLesson(id) {
+      lessonTabs.forEach(btn => btn.classList.toggle('active', btn.dataset.target === id));
+      lessonCards.forEach(card => card.classList.toggle('active', card.id === id));
+      currentLesson = id;
+      visitedLessons.add(id);
+      updateProgress();
+      scrollToSection('lessons');
+      showToast('تم فتح ' + id.replace('lesson', 'الدرس '));
+    }
+
+    lessonTabs.forEach(tab => {
+      tab.addEventListener('click', () => activateLesson(tab.dataset.target));
+    });
+
+    function updateProgress() {
+      const percent = Math.round((visitedLessons.size / lessonCards.length) * 100);
+      lessonProgress.style.width = percent + '%';
+    }
+    updateProgress();
+
+    document.querySelectorAll('.accordion').forEach(item => {
+      item.querySelector('button').addEventListener('click', () => {
+        item.classList.toggle('open');
+        const icon = item.querySelector('span');
+        icon.textContent = item.classList.contains('open') ? '－' : '＋';
+      });
+    });
+
+    const commandResponses = {
+      help: `الأوامر المتاحة:\n- help\n- print\n- variables\n- loops\n- functions\n- files\n- oop\n- clear`,
+      print: `مثال:\nprint('Hello World')\nالنتيجة: Hello World`,
+      variables: `المتغيرات مثال:\nname = 'Ali'\nage = 21\nprice = 9.99`,
+      loops: `الحلقات:\nfor i in range(5):\n    print(i)\n\nwhile condition:\n    ...`,
+      functions: `الدوال:\ndef greet(name):\n    return 'Hello ' + name`,
+      files: `الملفات:\nwith open('data.txt', 'r') as f:\n    content = f.read()`,
+      oop: `OOP مثال:\nclass User:\n    def __init__(self, name):\n        self.name = name`,
+      clear: '__CLEAR__'
+    };
+
+    function runCommand(cmd) {
+      const normalized = cmd.trim().toLowerCase();
+      if (!normalized) return;
+      terminalOutput.textContent += `\n> ${cmd}\n`;
+      if (commandResponses[normalized] === '__CLEAR__') {
+        terminalOutput.textContent = 'تم تنظيف الشاشة.\n';
+      } else if (commandResponses[normalized]) {
+        terminalOutput.textContent += commandResponses[normalized] + '\n';
+      } else {
+        terminalOutput.textContent += 'أمر غير معروف. اكتب help لعرض الأوامر.\n';
+      }
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    function runPreset(cmd) {
+      runCommand(cmd);
+      showToast('تم تشغيل الأمر: ' + cmd);
+    }
+
+    terminalInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        runCommand(terminalInput.value);
+        terminalInput.value = '';
+      }
+    });
+
+    const quizData = [
+      {
+        question: 'ما وظيفة print في Python؟',
+        answers: ['حذف المتغيرات', 'طباعة النصوص والنتائج', 'فتح الملفات', 'إيقاف البرنامج'],
+        correct: 1
+      },
+      {
+        question: 'أي نوع بيانات يمثل نصاً؟',
+        answers: ['int', 'bool', 'str', 'float'],
+        correct: 2
+      },
+      {
+        question: 'ما الكلمة المستخدمة لتعريف دالة؟',
+        answers: ['loop', 'class', 'def', 'return'],
+        correct: 2
+      },
+      {
+        question: 'أي بنية تستخدم لاتخاذ قرار؟',
+        answers: ['if', 'import', 'open', 'pass'],
+        correct: 0
+      },
+      {
+        question: 'أي شيء يساعد على تنظيم الكود ككائنات؟',
+        answers: ['OOP', 'CSV', 'HTML', 'JSON'],
+        correct: 0
+      }
+    ];
+
+    let quizIndex = 0;
+    let quizScore = 0;
+    let answered = false;
+
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizAnswers = document.getElementById('quizAnswers');
+    const scoreBox = document.getElementById('scoreBox');
+
+    function renderQuestion() {
+      const q = quizData[quizIndex];
+      answered = false;
+      quizQuestion.textContent = `س${quizIndex + 1}: ${q.question}`;
+      quizAnswers.innerHTML = '';
+      q.answers.forEach((answer, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn';
+        btn.textContent = answer;
+        btn.onclick = () => answerQuestion(index);
+        quizAnswers.appendChild(btn);
+      });
+      scoreBox.textContent = `النتيجة الحالية: ${quizScore} من ${quizData.length}`;
+    }
+
+    function answerQuestion(selected) {
+      if (answered) return;
+      answered = true;
+      const q = quizData[quizIndex];
+      if (selected === q.correct) {
+        quizScore++;
+        showToast('إجابة صحيحة');
+      } else {
+        showToast('إجابة غير صحيحة');
+      }
+      scoreBox.textContent = `النتيجة الحالية: ${quizScore} من ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+      if (quizIndex < quizData.length - 1) {
+        quizIndex++;
+        renderQuestion();
+      } else {
+        scoreBox.textContent = `انتهى الاختبار. نتيجتك النهائية: ${quizScore} من ${quizData.length}`;
+        showToast('انتهى الاختبار');
+      }
+    }
+
+    function restartQuiz() {
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuestion();
+      showToast('تمت إعادة الاختبار');
+    }
+
+    function shuffleProjects() {
+      const cards = [...projectsGrid.children];
+      for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+      }
+      cards.forEach(card => projectsGrid.appendChild(card));
+      showToast('تم تغيير ترتيب المشاريع');
+    }
+
+    let darkAlt = false;
+    function toggleThemeStyle() {
+      darkAlt = !darkAlt;
+      document.documentElement.style.setProperty('--accent', darkAlt ? '#ffd166' : '#64ffda');
+      document.documentElement.style.setProperty('--accent-2', darkAlt ? '#ff8fab' : '#7aa2ff');
+      showToast(darkAlt ? 'تم تفعيل إضاءة بديلة' : 'تم الرجوع للإضاءة الأصلية');
+    }
+
+    renderQuestion();
+    applyTrackFilter();
+
+    window.closeWelcome = closeWelcome;
+    window.scrollToSection = scrollToSection;
+    window.activateLesson = activateLesson;
+    window.nextQuestion = nextQuestion;
+    window.restartQuiz = restartQuiz;
+    window.runPreset = runPreset;
+    window.shuffleProjects = shuffleProjects;
+    window.toggleThemeStyle = toggleThemeStyle;
+    window.showToast = showToast;
+  </script></body>
+</html>

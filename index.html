@@ -2,29 +2,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>هدية عيد الفطر</title>
+  <title>هدية استثنائية من علي حازم</title>
   <style>
     :root {
-      --bg1: #12061d;
-      --bg2: #2a0d3f;
-      --gold: #ffd67a;
-      --rose: #ff6fae;
-      --rose2: #ffb6d2;
-      --white: #fffaf7;
-      --glass: rgba(255,255,255,0.12);
-      --glass-border: rgba(255,255,255,0.18);
-      --shadow: 0 15px 50px rgba(0,0,0,.35);
-    }* { box-sizing: border-box; }
+      --bg-1: #05060b;
+      --bg-2: #120f1f;
+      --bg-3: #24142f;
+      --gold: #f7d98b;
+      --gold-2: #ffbe5c;
+      --rose: #ff9fc8;
+      --white: #fffaf4;
+      --soft: rgba(255, 255, 255, 0.08);
+      --line: rgba(255, 255, 255, 0.14);
+      --shadow: 0 25px 90px rgba(0,0,0,.45);
+    }* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
-  margin: 0;
-  padding: 0;
+  width: 100%;
   min-height: 100%;
-  font-family: "Tahoma", "Arial", sans-serif;
+  font-family: Tahoma, Arial, sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(255,111,174,.15), transparent 30%),
-    radial-gradient(circle at top right, rgba(255,214,122,.15), transparent 28%),
-    linear-gradient(135deg, var(--bg1), var(--bg2));
+    radial-gradient(circle at 20% 20%, rgba(247,217,139,.09), transparent 20%),
+    radial-gradient(circle at 80% 15%, rgba(255,159,200,.07), transparent 18%),
+    radial-gradient(circle at 50% 80%, rgba(255,190,92,.06), transparent 20%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
   color: var(--white);
   overflow-x: hidden;
 }
@@ -33,58 +34,86 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,.06) 0 2px, transparent 3px),
-    radial-gradient(circle at 70% 40%, rgba(255,255,255,.06) 0 2px, transparent 3px),
-    radial-gradient(circle at 40% 80%, rgba(255,255,255,.06) 0 2px, transparent 3px);
-  background-size: 180px 180px;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.22) 0 1px, transparent 1.2px);
+  background-size: 90px 90px;
+  opacity: .15;
   pointer-events: none;
-  opacity: .8;
 }
 
-.floating-hearts {
+.aurora, .hearts, .particles {
   position: fixed;
   inset: 0;
-  overflow: hidden;
   pointer-events: none;
-  z-index: 1;
+  overflow: hidden;
+  z-index: 0;
 }
 
-.heart {
+.aurora::before,
+.aurora::after {
+  content: "";
   position: absolute;
-  bottom: -50px;
-  color: rgba(255, 182, 210, 0.28);
-  font-size: clamp(18px, 2vw, 30px);
-  animation: floatUp linear infinite;
-  filter: drop-shadow(0 0 10px rgba(255,111,174,.3));
+  width: 45vw;
+  height: 45vw;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: .12;
+  animation: drift 14s ease-in-out infinite alternate;
 }
 
-@keyframes floatUp {
-  0% { transform: translateY(0) rotate(0deg) scale(.8); opacity: 0; }
-  10% { opacity: 1; }
-  100% { transform: translateY(-120vh) rotate(360deg) scale(1.2); opacity: 0; }
+.aurora::before {
+  top: -10vw;
+  right: -5vw;
+  background: radial-gradient(circle, var(--gold), transparent 65%);
 }
 
-.screen {
+.aurora::after {
+  bottom: -10vw;
+  left: -5vw;
+  background: radial-gradient(circle, var(--rose), transparent 65%);
+  animation-duration: 18s;
+}
+
+@keyframes drift {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(40px, 30px) scale(1.08); }
+}
+
+.wrap {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px;
   position: relative;
   z-index: 2;
 }
 
+.shell {
+  width: min(100%, 1100px);
+  position: relative;
+}
+
+.glow-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 34px;
+  background: linear-gradient(135deg, rgba(247,217,139,.22), rgba(255,255,255,.02), rgba(255,159,200,.18));
+  filter: blur(18px);
+  opacity: .85;
+  z-index: 0;
+}
+
 .card {
-  width: min(100%, 980px);
-  background: linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.07));
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-radius: 30px;
+  position: relative;
+  z-index: 1;
+  border-radius: 34px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04));
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
   box-shadow: var(--shadow);
   overflow: hidden;
-  position: relative;
 }
 
 .card::before {
@@ -93,429 +122,529 @@ body::before {
   inset: 0;
   background: linear-gradient(120deg, transparent, rgba(255,255,255,.08), transparent);
   transform: translateX(-100%);
-  animation: shine 6s linear infinite;
+  animation: sheen 7s linear infinite;
   pointer-events: none;
 }
 
-@keyframes shine {
+@keyframes sheen {
   to { transform: translateX(100%); }
 }
 
-.lock-box {
-  padding: 45px 24px;
+.lock-screen,
+.gift-screen {
+  padding: 40px 28px;
   text-align: center;
-}
-
-.moon {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 18px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #fff6ca, #ffd67a 60%, #ffbf43);
   position: relative;
-  box-shadow: 0 0 30px rgba(255,214,122,.35);
 }
 
-.moon::after {
+.gift-screen { display: none; }
+
+.crescent {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 18px;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff4c8, var(--gold) 58%, var(--gold-2));
+  box-shadow: 0 0 45px rgba(247,217,139,.28);
+}
+
+.crescent::after {
   content: "";
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 104px;
+  height: 104px;
+  top: 12px;
+  right: -9px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--bg1), var(--bg2));
-  top: 8px;
-  right: -10px;
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-3));
 }
 
-.title {
-  font-size: clamp(28px, 4vw, 52px);
-  margin: 8px 0 12px;
+.mini-label {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  color: var(--rose);
+  font-weight: bold;
+  margin-bottom: 18px;
+  letter-spacing: .5px;
+}
+
+h1 {
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 1.25;
   color: var(--gold);
-  text-shadow: 0 0 15px rgba(255,214,122,.18);
+  margin-bottom: 14px;
+  text-shadow: 0 0 24px rgba(247,217,139,.14);
 }
 
-.subtitle {
-  font-size: clamp(16px, 2vw, 21px);
-  line-height: 1.9;
-  color: #fff7f0;
-  max-width: 700px;
-  margin: 0 auto 26px;
+.lead {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 2;
+  color: #fff7ef;
 }
 
-.input-wrap {
+.password-box {
+  margin-top: 28px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
-  margin-top: 18px;
+  align-items: center;
 }
 
-input[type="password"] {
+.password-box input {
   width: min(100%, 360px);
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(255,255,255,.12);
-  color: white;
   padding: 16px 18px;
-  font-size: 17px;
   border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  font-size: 16px;
   outline: none;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
 }
 
-input::placeholder { color: rgba(255,255,255,.65); }
+.password-box input::placeholder { color: rgba(255,255,255,.62); }
 
-button {
+.password-box button,
+.replay-btn {
+  padding: 16px 26px;
   border: none;
-  padding: 16px 30px;
-  font-size: 17px;
   border-radius: 16px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  color: #201300;
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--rose), #ff4b8c);
-  color: white;
-  box-shadow: 0 10px 25px rgba(255,75,140,.35);
+  box-shadow: 0 10px 30px rgba(255,190,92,.25);
   transition: transform .2s ease, box-shadow .2s ease;
-  font-weight: bold;
 }
 
-button:hover {
+.password-box button:hover,
+.replay-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(255,75,140,.45);
+  box-shadow: 0 16px 34px rgba(255,190,92,.32);
 }
 
 .hint {
-  margin-top: 14px;
-  color: #ffe6ef;
-  opacity: .9;
+  margin-top: 12px;
   font-size: 14px;
+  color: rgba(255,255,255,.75);
 }
 
 .error {
-  min-height: 24px;
-  margin-top: 12px;
-  color: #ffd4e2;
+  min-height: 22px;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #ffc8d9;
   font-weight: bold;
-}
-
-.gift-page {
-  display: none;
-  padding: 0;
 }
 
 .hero {
-  padding: 70px 28px 40px;
-  text-align: center;
+  padding: 70px 24px 34px;
   position: relative;
+  overflow: hidden;
   background:
-    radial-gradient(circle at center top, rgba(255,214,122,.12), transparent 35%),
-    linear-gradient(180deg, rgba(255,255,255,.05), transparent);
+    radial-gradient(circle at center top, rgba(247,217,139,.14), transparent 36%),
+    linear-gradient(180deg, rgba(255,255,255,.04), transparent);
 }
 
-.badge {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.16);
-  color: var(--rose2);
-  font-weight: bold;
-  margin-bottom: 18px;
-}
-
-.hero h1 {
-  margin: 0;
-  font-size: clamp(32px, 5vw, 64px);
+.hero-title {
+  font-size: clamp(32px, 5vw, 70px);
   line-height: 1.3;
   color: var(--gold);
+  margin-bottom: 10px;
 }
 
-.hero p {
-  margin: 16px auto 0;
-  max-width: 760px;
-  font-size: clamp(17px, 2vw, 23px);
+.hero-sub {
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: clamp(18px, 2vw, 24px);
   line-height: 2;
-  color: #fff8f2;
+  color: #fff9f2;
 }
 
 .signature {
-  margin-top: 24px;
-  font-size: clamp(18px, 2.2vw, 28px);
-  color: var(--rose2);
+  margin-top: 22px;
+  font-size: clamp(19px, 2.5vw, 30px);
+  color: var(--rose);
   font-weight: bold;
 }
 
 .content {
-  padding: 0 24px 40px;
+  padding: 0 22px 28px;
 }
 
-.quote-box,
-.gallery-box,
-.music-box,
-.message-box {
-  margin-top: 22px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 26px;
-  padding: 24px;
-  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+.panel {
+  margin-top: 18px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 28px;
+  padding: 24px 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.18);
 }
 
-.section-title {
-  margin: 0 0 16px;
-  font-size: clamp(22px, 3vw, 34px);
+.panel-title {
   color: var(--gold);
+  font-size: clamp(22px, 3vw, 36px);
+  margin-bottom: 14px;
 }
 
-.main-quote {
-  font-size: clamp(22px, 3vw, 40px);
-  line-height: 1.8;
+.grand-line {
+  font-size: clamp(23px, 3vw, 40px);
+  line-height: 1.9;
   text-align: center;
-  color: #fff4e4;
+  color: #fff6e8;
   font-weight: bold;
-  text-shadow: 0 0 18px rgba(255,214,122,.12);
+  text-shadow: 0 0 18px rgba(247,217,139,.12);
 }
 
-.sub-quote {
-  margin-top: 12px;
+.typewriter-wrap {
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typewriter {
+  max-width: 900px;
+  margin: 0 auto;
+  white-space: pre-line;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 2.15;
+  color: #fff8f3;
   text-align: center;
-  font-size: clamp(17px, 2vw, 22px);
-  color: var(--rose2);
 }
 
-.gallery {
+.caret {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1s steps(1) infinite;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.pillars {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
+  gap: 16px;
+  margin-top: 16px;
 }
 
-.photo-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
-  min-height: 290px;
-}
-
-.photo-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .6s ease;
-}
-
-.photo-card:hover img { transform: scale(1.06); }
-
-.photo-card span {
-  position: absolute;
-  inset-inline: 12px;
-  bottom: 12px;
-  background: rgba(0,0,0,.38);
-  color: white;
-  padding: 10px 12px;
-  border-radius: 14px;
-  font-size: 14px;
-  backdrop-filter: blur(8px);
-}
-
-.message-box p {
-  font-size: clamp(17px, 2vw, 21px);
-  line-height: 2.1;
-  margin: 0;
-  color: #fff8f2;
+.pillar {
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 22px;
+  padding: 20px 18px;
   text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.music-note {
-  margin-bottom: 14px;
-  color: var(--rose2);
-  font-size: 15px;
+.pillar:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.16);
+}
+
+.pillar .icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.pillar h3 {
+  color: var(--gold);
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.pillar p {
   line-height: 1.9;
+  color: #fff8f0;
+  font-size: 16px;
 }
 
-audio {
-  width: 100%;
-  border-radius: 14px;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,.2));
+.final-seal {
+  text-align: center;
+  padding: 18px 12px 8px;
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: var(--rose);
+  font-weight: bold;
+}
+
+.replay-row {
+  text-align: center;
+  margin-top: 18px;
 }
 
 .footer {
-  padding: 24px;
   text-align: center;
-  color: rgba(255,255,255,.85);
+  padding: 8px 20px 28px;
+  color: rgba(255,255,255,.8);
   font-size: 15px;
 }
 
-.sparkles {
+.heart, .particle {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
+  bottom: -60px;
+  opacity: 0;
+  animation: rise linear infinite;
 }
 
-.sparkle {
-  position: absolute;
+.heart {
+  color: rgba(255, 185, 214, 0.26);
+  filter: drop-shadow(0 0 12px rgba(255,159,200,.22));
+}
+
+.particle {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(255,214,122,.85);
-  box-shadow: 0 0 16px rgba(255,214,122,.9);
-  animation: twinkle 2.5s infinite ease-in-out;
+  background: rgba(247,217,139,.45);
+  box-shadow: 0 0 16px rgba(247,217,139,.45);
 }
 
-@keyframes twinkle {
-  0%, 100% { opacity: .2; transform: scale(.7); }
-  50% { opacity: 1; transform: scale(1.4); }
+@keyframes rise {
+  0% { transform: translateY(0) scale(.75); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+}
+
+.burst {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.flash-heart {
+  position: absolute;
+  font-size: 24px;
+  transition: transform 1.3s ease, opacity 1.3s ease;
+  opacity: 1;
 }
 
 @media (max-width: 700px) {
-  .lock-box { padding: 34px 18px; }
-  .hero { padding-top: 52px; }
-  .quote-box,
-  .gallery-box,
-  .music-box,
-  .message-box { padding: 18px; }
+  .lock-screen, .gift-screen { padding: 28px 16px; }
+  .hero { padding-top: 44px; }
+  .typewriter-wrap { min-height: 420px; }
 }
 
   </style>
 </head>
 <body>
-  <div class="floating-hearts" id="hearts"></div>  <div class="screen">
-    <div class="card">
-      <div class="sparkles" id="sparkles"></div><section class="lock-box" id="lockScreen">
-    <div class="moon"></div>
-    <h1 class="title">🎁 هدية إلكترونية لعيد الفطر</h1>
-    <p class="subtitle">
-      هدية خاصة مصممة بذوق راقٍ ولمسة دافئة،<br>
-      حتى تكون معايدة إلكترونية مميزة ومختلفة بكل تفاصيلها.
-    </p>
-
-    <div class="input-wrap">
-      <input id="passwordInput" type="password" placeholder="اكتب كلمة السر هنا" />
-      <button onclick="openGift()">فتح الهدية</button>
-    </div>
-
-    <div class="hint">كلمة السر: <b>I love you</b></div>
-    <div class="error" id="errorMsg"></div>
-  </section>
-
-  <section class="gift-page" id="giftPage">
-    <div class="hero">
-      <div class="badge">عيد فطر مبارك ✨</div>
-      <h1>كل عام وأنتم بخير</h1>
-      <p>
-        في هذا العيد أهديك أجمل الأمنيات، وأصدق المشاعر، وألطف الكلمات،<br>
-        لتبقى فرحة العيد أجمل بوجودك، وتبقى المعايدة أرقى لأنها واصلة من القلب.
-      </p>
-      <div class="signature">من <span style="color: var(--gold);">علي حازم</span></div>
-    </div>
-
-    <div class="content">
-      <div class="quote-box">
-        <h2 class="section-title">أجمل كلمات التهنئة</h2>
-        <div class="main-quote">كل عام وأنتم بخير، وعيدكم فرح، وأيامكم سعادة، وقلوبكم مليانة نور وطمأنينة ❤️</div>
-        <div class="sub-quote">أصدق التهاني وأجمل الأمنيات بعيد فطر مبارك يليق بقلوبكم الجميلة.</div>
+  <div class="aurora"></div>
+  <div class="hearts" id="heartsLayer"></div>
+  <div class="particles" id="particlesLayer"></div>
+  <div class="burst" id="burstLayer"></div>  <div class="wrap">
+    <div class="shell">
+      <div class="glow-ring"></div>
+      <div class="card">
+        <section class="lock-screen" id="lockScreen">
+          <div class="crescent"></div>
+          <div class="mini-label">Eid Gift • Exclusive</div>
+          <h1>هدية مو مثل أي هدية</h1>
+          <p class="lead">
+            هذه تجربة كاملة مصممة حتى توصّل شعورك بطريقة استثنائية جدًا،
+            وتخلّي الشخص يعرف مكانته الحقيقية عندك، بشكل راقٍ، دافئ، ومختلف تمامًا.
+          </p><div class="password-box">
+        <input id="passwordInput" type="password" placeholder="اكتب كلمة السر" />
+        <button onclick="unlockGift()">فتح الهدية</button>
       </div>
+      <div class="hint">كلمة السر: <b>I love you</b></div>
+      <div class="error" id="errorText"></div>
+    </section>
 
-      <div class="message-box">
-        <h2 class="section-title">رسالة العيد</h2>
-        <p>
-          كل عام وأنت بخير، وعيدك أجمل من كل كلام، وألطف من كل شعور جميل.<br>
-          يا رب يرزقك هذا العيد راحة بال، وفرحة ما تنتهي، وضحكة تبقى بوجهك دوم.<br>
-          أتمنى لك أيامًا مليانة خير، ونجاح، وطمأنينة، ومحبة من كل من حولك.<br>
-          مكانتك غالية، ووجودك لطيف، وقربك يترك أثر جميل بالقلب.<br>
-          لك كل الود، وكل العزاز، وكل الأمنيات الحلوة في هذا العيد المبارك.<br><br>
-
-          عيد فطر مبارك عليك، وعلى قلبك، وعلى تفاصيل أيامك كلها.<br>
-          عساها سنة خير وفرح وتحقيق أمنيات، وعسى الفرح ما يفارقك أبدًا. ✨
+    <section class="gift-screen" id="giftScreen">
+      <div class="hero">
+        <div class="mini-label">عيد فطر مبارك ✨</div>
+        <div class="hero-title">كل عام وأنت بخير…<br>وبمكانتك العالية اللي ما تشبه أحد</div>
+        <p class="hero-sub">
+          مو كل الناس ينكتب إلهم كلام، ومو كل الأشخاص يوصلهم شعور حقيقي.<br>
+          لكن أنت تحديدًا… إلك كلام يليق بك، لأن مكانتك ما تنقاس، وعزازك أكبر من الوصف.
         </p>
+        <div class="signature">من علي حازم</div>
       </div>
 
+      <div class="content">
+        <div class="panel">
+          <div class="panel-title">رسالة المكانة</div>
+          <div class="grand-line">
+            أنت لست شخصًا عاديًا بالنسبة إلي…<br>
+            أنت قيمة، وطمأنينة، وعِزّة، ووجودك يترك أثرًا جميلًا لا يُنسى 💛
+          </div>
+        </div>
+
+        <div class="panel typewriter-wrap">
+          <div class="typewriter" id="typewriter"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">ليش هذه الهدية مختلفة؟</div>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="icon">👑</div>
+              <h3>مكانة</h3>
+              <p>لأن بعض الأشخاص وجودهم وحده يفرض احترامه، ويستحق كلام يليق بقيمته الحقيقية.</p>
+            </div>
+            <div class="pillar">
+              <div class="icon">🤍</div>
+              <h3>عزاز</h3>
+              <p>هناك أشخاص ما ينذكرون بشكل عابر، لأن حضورهم في القلب ثابت ومختلف وله وزن كبير.</p>
+            </div>
+            <div class="pillar">
+              <div class="icon">✨</div>
+              <h3>تميّز</h3>
+              <p>هذه الهدية معمولة لتقول لك بطريقة راقية: أنت عزيز، ثمين، ومقامك محفوظ بكل المعاني.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="final-seal">
+          عيدك فرح، وقلبك مطمئن، وقدرك عالي… لأنك فعلًا شخص عظيم وعزيز 🌙
+        </div>
+
+        <div class="replay-row">
+          <button class="replay-btn" onclick="replayMessage()">إعادة عرض الرسالة</button>
+        </div>
       </div>
 
-    <div class="footer">
-      صُممت هذه الهدية بكل حب وذوق راقٍ بمناسبة عيد الفطر المبارك 💖
-    </div>
-  </section>
+      <div class="footer">صُممت هذه الهدية بذوق فاخر ومشاعر صادقة لتبقى مختلفة فعلًا.</div>
+    </section>
+  </div>
 </div>
 
   </div>  <script>
-    const correctPassword = "I love you";
+    const PASS = 'I love you';
+    const heartsLayer = document.getElementById('heartsLayer');
+    const particlesLayer = document.getElementById('particlesLayer');
+    const burstLayer = document.getElementById('burstLayer');
+    const typewriter = document.getElementById('typewriter');
 
-    function openGift() {
-      const input = document.getElementById("passwordInput").value.trim();
-      const errorMsg = document.getElementById("errorMsg");
-      const lockScreen = document.getElementById("lockScreen");
-      const giftPage = document.getElementById("giftPage");
+    const messageText = `كل عام وأنت بخير،
 
-      if (input === correctPassword) {
-        errorMsg.textContent = "";
-        lockScreen.style.display = "none";
-        giftPage.style.display = "block";
-        launchConfettiHearts();
-      } else {
-        errorMsg.textContent = "كلمة السر غير صحيحة... جرّب مرة ثانية 💔";
+مو لأن العيد مناسبة وبس…
+لكن لأنك من الأشخاص اللي وجودهم بحد ذاته يغيّر الإحساس ويخلّي للأيام معنى أجمل.
+
+أريدك تعرف شيئًا مهمًا جدًا:
+أنت عندي مو مجرد اسم، ومو مجرد شخص عابر.
+أنت شخص له مكانة كبيرة، وقدر محفوظ، وعزاز لا يتكرر.
+
+هناك أشخاص نحب وجودهم،
+وهناك أشخاص نرتاح لهم،
+لكن نادر جدًا نلقى شخص يجمع بين القيمة، واللطف، والمهابة، والأثر الجميل…
+وأنت من هذا النوع النادر.
+
+وجودك مميز، وكلامك له وزن، وحضورك يترك في القلب شعورًا لا يمر مرورًا عاديًا.
+لهذا كانت هذه الهدية حتى توصلك الفكرة كما هي:
+أنت عظيم بمكانتك، جميل بأثرك، وعزيز بصورة أكبر من أي وصف بسيط.
+
+أتمنى لك في هذا العيد فرحة تليق بقلبك،
+وراحة تليق بروحك،
+وأيامًا مليانة خير ونجاح واطمئنان.
+
+وعسى تبقى دوم محفوظ، سعيد، ومحل تقدير دائم…
+لأنك تستحق ذلك فعلًا.`;
+
+    function createAmbientHearts() {
+      const icons = ['❤','💖','💕','💗'];
+      for (let i = 0; i < 22; i++) {
+        const el = document.createElement('div');
+        el.className = 'heart';
+        el.textContent = icons[Math.floor(Math.random() * icons.length)];
+        el.style.left = Math.random() * 100 + '%';
+        el.style.fontSize = (18 + Math.random() * 22) + 'px';
+        el.style.animationDuration = (9 + Math.random() * 9) + 's';
+        el.style.animationDelay = (Math.random() * 10) + 's';
+        heartsLayer.appendChild(el);
       }
     }
 
-    document.getElementById("passwordInput").addEventListener("keydown", function(e) {
-      if (e.key === "Enter") openGift();
+    function createAmbientParticles() {
+      for (let i = 0; i < 28; i++) {
+        const el = document.createElement('div');
+        el.className = 'particle';
+        el.style.left = Math.random() * 100 + '%';
+        el.style.width = el.style.height = (3 + Math.random() * 5) + 'px';
+        el.style.animationDuration = (10 + Math.random() * 8) + 's';
+        el.style.animationDelay = (Math.random() * 12) + 's';
+        particlesLayer.appendChild(el);
+      }
+    }
+
+    function unlockGift() {
+      const value = document.getElementById('passwordInput').value.trim();
+      const error = document.getElementById('errorText');
+      if (value === PASS) {
+        error.textContent = '';
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('giftScreen').style.display = 'block';
+        launchBurst();
+        startTyping();
+      } else {
+        error.textContent = 'كلمة السر غير صحيحة… جرّب مرة ثانية 🤍';
+      }
+    }
+
+    document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') unlockGift();
     });
 
-    function createFloatingHearts() {
-      const container = document.getElementById("hearts");
-      const hearts = ["❤", "💖", "💕", "💗", "💘"];
-
-      for (let i = 0; i < 24; i++) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-        heart.style.left = Math.random() * 100 + "%";
-        heart.style.animationDuration = (8 + Math.random() * 8) + "s";
-        heart.style.animationDelay = (Math.random() * 8) + "s";
-        heart.style.fontSize = (18 + Math.random() * 20) + "px";
-        container.appendChild(heart);
-      }
+    let typingTimer;
+    function startTyping() {
+      clearInterval(typingTimer);
+      typewriter.innerHTML = '';
+      let i = 0;
+      typingTimer = setInterval(() => {
+        if (i < messageText.length) {
+          const current = messageText.slice(0, i + 1)
+            .replace(/\n/g, '<br>');
+          typewriter.innerHTML = current + '<span class="caret">|</span>';
+          i++;
+        } else {
+          clearInterval(typingTimer);
+          typewriter.innerHTML = messageText.replace(/\n/g, '<br>');
+        }
+      }, 36);
     }
 
-    function createSparkles() {
-      const wrap = document.getElementById("sparkles");
-      for (let i = 0; i < 22; i++) {
-        const s = document.createElement("span");
-        s.className = "sparkle";
-        s.style.top = Math.random() * 100 + "%";
-        s.style.left = Math.random() * 100 + "%";
-        s.style.animationDelay = (Math.random() * 2.5) + "s";
-        s.style.animationDuration = (1.5 + Math.random() * 2.5) + "s";
-        wrap.appendChild(s);
-      }
+    function replayMessage() {
+      startTyping();
+      launchBurst();
     }
 
-    function launchConfettiHearts() {
-      for (let i = 0; i < 18; i++) {
-        const burst = document.createElement("div");
-        burst.textContent = "💖";
-        burst.style.position = "fixed";
-        burst.style.left = (40 + Math.random() * 20) + "%";
-        burst.style.top = (35 + Math.random() * 10) + "%";
-        burst.style.fontSize = (20 + Math.random() * 18) + "px";
-        burst.style.pointerEvents = "none";
-        burst.style.zIndex = "9999";
-        burst.style.transition = "transform 1.2s ease-out, opacity 1.2s ease-out";
-        document.body.appendChild(burst);
+    function launchBurst() {
+      const icons = ['💖','✨','💛','🌙'];
+      for (let i = 0; i < 28; i++) {
+        const el = document.createElement('div');
+        el.className = 'flash-heart';
+        el.textContent = icons[Math.floor(Math.random() * icons.length)];
+        el.style.left = (42 + Math.random() * 16) + '%';
+        el.style.top = (35 + Math.random() * 12) + '%';
+        el.style.fontSize = (18 + Math.random() * 16) + 'px';
+        burstLayer.appendChild(el);
 
         requestAnimationFrame(() => {
-          const x = (Math.random() - 0.5) * 380;
-          const y = (Math.random() - 0.5) * 280;
-          burst.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 360}deg)`;
-          burst.style.opacity = "0";
+          const x = (Math.random() - 0.5) * 560;
+          const y = (Math.random() - 0.5) * 320;
+          const r = (Math.random() - 0.5) * 540;
+          el.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg) scale(${0.8 + Math.random() * 1.1})`;
+          el.style.opacity = '0';
         });
 
-        setTimeout(() => burst.remove(), 1300);
+        setTimeout(() => el.remove(), 1400);
       }
     }
 
-    createFloatingHearts();
-    createSparkles();
+    createAmbientHearts();
+    createAmbientParticles();
   </script></body>
 </html>

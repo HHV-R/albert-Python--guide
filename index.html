@@ -2,98 +2,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIP Eid Gift — From Ali Hazem</title>
-  <meta name="theme-color" content="#0a0714" />
+  <title>هدية عيد فطر خاصة</title>
+  <meta name="theme-color" content="#0b0814" />
   <style>
     :root {
-      --bg-0: #05030a;
-      --bg-1: #0c0815;
-      --bg-2: #151022;
-      --bg-3: #1d1430;
-      --gold-1: #f8df9b;
-      --gold-2: #ffcf6d;
-      --gold-3: #c7922d;
-      --pink-1: #ffb7d3;
-      --pink-2: #ff7cb1;
-      --pink-3: #ff4d92;
-      --violet-1: #9a7dff;
-      --cyan-1: #86ecff;
-      --white-1: #fffdf9;
-      --white-2: rgba(255,255,255,0.92);
-      --white-3: rgba(255,255,255,0.72);
-      --line-1: rgba(255,255,255,0.16);
-      --line-2: rgba(255,255,255,0.08);
-      --glass-1: rgba(255,255,255,0.12);
-      --glass-2: rgba(255,255,255,0.06);
-      --shadow-1: 0 30px 80px rgba(0,0,0,0.55);
-      --shadow-2: 0 18px 40px rgba(0,0,0,0.28);
+      --bg-1: #07050d;
+      --bg-2: #120c1f;
+      --bg-3: #1b1030;
+      --gold-1: #f9e4a6;
+      --gold-2: #ffc96b;
+      --gold-3: #c58c25;
+      --rose-1: #ffc3dc;
+      --rose-2: #ff82b8;
+      --rose-3: #ff4c97;
+      --violet: #9079ff;
+      --cyan: #88e8ff;
+      --white: #fffdf9;
+      --text-soft: rgba(255,255,255,.80);
+      --text-fade: rgba(255,255,255,.62);
+      --line: rgba(255,255,255,.12);
+      --glass: rgba(255,255,255,.08);
+      --shadow: 0 25px 80px rgba(0,0,0,.45);
       --radius-xl: 34px;
-      --radius-lg: 26px;
-      --radius-md: 20px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
       --ease: cubic-bezier(.22,1,.36,1);
-    }* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    }* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
-  font-family: Tahoma, Arial, sans-serif;
-  color: var(--white-1);
-  background:
-    radial-gradient(circle at 20% 12%, rgba(255, 207, 109, 0.12), transparent 18%),
-    radial-gradient(circle at 82% 15%, rgba(255, 124, 177, 0.12), transparent 18%),
-    radial-gradient(circle at 50% 80%, rgba(154, 125, 255, 0.10), transparent 24%),
-    linear-gradient(135deg, var(--bg-0), var(--bg-1) 30%, var(--bg-2) 65%, var(--bg-3));
   overflow-x: hidden;
+  font-family: Tahoma, Arial, sans-serif;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 201, 107, .13), transparent 18%),
+    radial-gradient(circle at 82% 15%, rgba(255, 130, 184, .10), transparent 18%),
+    radial-gradient(circle at 50% 85%, rgba(144, 121, 255, .10), transparent 24%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));
   perspective: 1400px;
 }
 
-body::before,
-body::after {
+body::before {
   content: "";
   position: fixed;
   inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.16) 0 1px, transparent 1.2px);
+  background-size: 90px 90px;
+  opacity: .14;
   pointer-events: none;
   z-index: 0;
 }
 
-body::before {
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,0.22) 0 1px, transparent 1.2px);
-  background-size: 88px 88px;
-  opacity: 0.12;
-  animation: starPulse 10s linear infinite;
-}
-
-body::after {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.03), transparent 20%, transparent 80%, rgba(255,255,255,0.03));
-  mix-blend-mode: screen;
-}
-
-@keyframes starPulse {
-  0% { opacity: 0.08; }
-  50% { opacity: 0.14; }
-  100% { opacity: 0.08; }
-}
-
-.scene,
 .aurora,
 .hearts-layer,
 .particle-layer,
-.burst-layer,
-.light-rays,
-.orbs-layer {
+.burst-layer {
   position: fixed;
   inset: 0;
-  pointer-events: none;
   overflow: hidden;
+  pointer-events: none;
   z-index: 0;
 }
 
@@ -101,60 +70,64 @@ body::after {
 .aurora::after {
   content: "";
   position: absolute;
-  width: 46vw;
-  height: 46vw;
+  width: 45vw;
+  height: 45vw;
   border-radius: 50%;
   filter: blur(70px);
-  opacity: 0.16;
-  animation: drift 18s ease-in-out infinite alternate;
+  opacity: .16;
+  animation: drift 20s ease-in-out infinite alternate;
 }
 
 .aurora::before {
-  top: -12vw;
+  top: -10vw;
   right: -8vw;
-  background: radial-gradient(circle, rgba(255, 207, 109, 0.9), transparent 62%);
+  background: radial-gradient(circle, rgba(255, 201, 107, .9), transparent 65%);
 }
 
 .aurora::after {
   left: -10vw;
-  bottom: -14vw;
-  background: radial-gradient(circle, rgba(255, 124, 177, 0.9), transparent 62%);
-  animation-duration: 24s;
-}
-
-.light-rays::before,
-.light-rays::after {
-  content: "";
-  position: absolute;
-  width: 80vw;
-  height: 80vw;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent 0 70%, rgba(255,255,255,0.05) 80%, transparent 92%);
-  filter: blur(12px);
-  opacity: 0.25;
-  animation: spinSlow 24s linear infinite;
-}
-
-.light-rays::before {
-  top: -38vw;
-  left: -18vw;
-}
-
-.light-rays::after {
-  right: -28vw;
-  bottom: -40vw;
-  animation-direction: reverse;
-  animation-duration: 30s;
-}
-
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  bottom: -12vw;
+  background: radial-gradient(circle, rgba(255, 130, 184, .9), transparent 65%);
+  animation-duration: 26s;
 }
 
 @keyframes drift {
-  0% { transform: translate3d(0,0,0) scale(1); }
-  100% { transform: translate3d(42px, 28px, 0) scale(1.08); }
+  from { transform: translate3d(0,0,0) scale(1); }
+  to { transform: translate3d(40px, 30px, 0) scale(1.07); }
+}
+
+.heart, .particle {
+  position: absolute;
+  bottom: -60px;
+  opacity: 0;
+  animation: rise linear infinite;
+}
+
+.heart {
+  color: rgba(255, 195, 220, .28);
+  filter: drop-shadow(0 0 10px rgba(255,130,184,.22));
+}
+
+.particle {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 215, 147, .44);
+  box-shadow: 0 0 16px rgba(255,201,107,.30);
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(.7) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.15) rotate(360deg); opacity: 0; }
+}
+
+.flash {
+  position: absolute;
+  font-size: 24px;
+  transition: transform 1.3s ease, opacity 1.3s ease;
+  opacity: 1;
+  will-change: transform, opacity;
 }
 
 .app {
@@ -164,79 +137,58 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 20px;
 }
 
 .shell {
+  width: min(100%, 1100px);
   position: relative;
-  width: min(100%, 1200px);
   transform-style: preserve-3d;
+  transition: transform .25s ease;
 }
 
-.shell:hover .frame {
-  transform: rotateX(1.4deg) rotateY(-1.4deg);
-}
-
-.halo {
+.glow {
   position: absolute;
-  inset: -4px;
+  inset: -3px;
   border-radius: 40px;
-  background:
-    linear-gradient(135deg, rgba(255,207,109,0.34), rgba(255,255,255,0.02), rgba(255,124,177,0.24), rgba(134,236,255,0.15));
+  background: linear-gradient(135deg, rgba(255,201,107,.28), rgba(255,255,255,.03), rgba(255,130,184,.20));
   filter: blur(22px);
-  opacity: 0.9;
+  opacity: .9;
   z-index: 0;
-  transform: translateZ(-80px);
 }
 
 .frame {
   position: relative;
   z-index: 1;
   border-radius: 38px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.06));
-  border: 1px solid var(--line-1);
-  backdrop-filter: blur(24px) saturate(120%);
-  -webkit-backdrop-filter: blur(24px) saturate(120%);
-  box-shadow: var(--shadow-1);
   overflow: hidden;
-  transition: transform .7s var(--ease);
-  transform-style: preserve-3d;
-}
-
-.frame::before,
-.frame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.05));
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: var(--shadow);
 }
 
 .frame::before {
-  background: linear-gradient(120deg, transparent 0 35%, rgba(255,255,255,0.10) 50%, transparent 65%);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0 35%, rgba(255,255,255,.10) 50%, transparent 65%);
   transform: translateX(-120%);
   animation: sheen 8s linear infinite;
+  pointer-events: none;
 }
 
-.frame::after {
-  border-radius: 38px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.16),
-    inset 0 -1px 0 rgba(255,255,255,0.03);
-}
-
-@keyframes sheen {
-  to { transform: translateX(120%); }
-}
+@keyframes sheen { to { transform: translateX(120%); } }
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 14px;
   padding: 18px 20px;
-  border-bottom: 1px solid var(--line-2);
-  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
 }
 
 .brand {
@@ -245,349 +197,242 @@ body::after {
   gap: 12px;
 }
 
-.brand-badge {
-  width: 46px;
-  height: 46px;
+.brand-icon {
+  width: 48px;
+  height: 48px;
   border-radius: 16px;
-  background:
-    radial-gradient(circle at 30% 30%, #fff4cc, var(--gold-1) 40%, var(--gold-3));
-  color: #2c1a00;
   display: grid;
   place-items: center;
   font-weight: 800;
-  box-shadow: 0 10px 24px rgba(255,207,109,0.25);
-  position: relative;
-  overflow: hidden;
-}
-
-.brand-badge::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.46), transparent);
-  transform: rotate(25deg);
-  animation: badgeShine 4s linear infinite;
-}
-
-@keyframes badgeShine {
-  from { transform: translateX(-120%) rotate(25deg); }
-  to { transform: translateX(120%) rotate(25deg); }
+  color: #2d1800;
+  background: radial-gradient(circle at 35% 35%, #fff7d5, var(--gold-1) 42%, var(--gold-3));
+  box-shadow: 0 10px 26px rgba(255,201,107,.22);
 }
 
 .brand-text strong {
   display: block;
   font-size: 16px;
-  color: var(--white-1);
-  letter-spacing: 0.4px;
+  color: var(--white);
 }
 
 .brand-text span {
   display: block;
-  margin-top: 2px;
-  color: var(--white-3);
+  margin-top: 3px;
+  color: var(--text-fade);
   font-size: 13px;
 }
 
-.chips {
+.badge-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   justify-content: flex-end;
 }
 
-.chip {
-  padding: 10px 14px;
+.badge {
+  padding: 10px 13px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: var(--white-2);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--text-soft);
   font-size: 12px;
-  letter-spacing: 0.6px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  letter-spacing: .4px;
 }
 
 .screen {
   position: relative;
-  min-height: 76vh;
+  min-height: 78vh;
 }
 
 .lock-screen,
 .gift-screen {
   position: relative;
-  padding: 30px 26px 32px;
+  padding: 26px;
 }
 
-.gift-screen {
-  display: none;
-}
+.gift-screen { display: none; }
 
-.grid-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: radial-gradient(circle at center, #000 55%, transparent 90%);
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.stage {
+.hero {
   position: relative;
-  min-height: 68vh;
+  min-height: 72vh;
   display: grid;
   place-items: center;
-  isolation: isolate;
   overflow: hidden;
+  padding: 80px 18px 28px;
+  text-align: center;
+  background:
+    radial-gradient(circle at center top, rgba(255,201,107,.14), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.04), transparent);
 }
 
-.moon-ring {
+.moon {
   position: absolute;
-  top: 4%;
-  inset-inline-start: 50%;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff7d8, var(--gold-1) 50%, var(--gold-2));
+  box-shadow: 0 0 40px rgba(255,201,107,.25);
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  top: 14px;
+  right: -8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-3));
+}
+
+.moon-rings::before,
+.moon-rings::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 105px;
   transform: translateX(-50%);
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  filter: drop-shadow(0 0 42px rgba(255,207,109,0.24));
-  opacity: 0.95;
+  border: 1px solid rgba(255,201,107,.16);
+  animation: pulseRing 5.5s linear infinite;
 }
 
-.moon-ring .moon {
-  width: 118px;
-  height: 118px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 30%, #fff9dd, var(--gold-1) 48%, var(--gold-2));
-  position: relative;
+.moon-rings::after { animation-delay: 2.7s; }
+
+@keyframes pulseRing {
+  0% { transform: translateX(-50%) scale(.85); opacity: .45; }
+  100% { transform: translateX(-50%) scale(1.35); opacity: 0; }
 }
 
-.moon-ring .moon::after {
-  content: "";
-  position: absolute;
-  top: 12px;
-  right: -7px;
-  width: 92px;
-  height: 92px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--bg-0), var(--bg-3));
-}
-
-.moon-ring::before,
-.moon-ring::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 207, 109, 0.16);
-  animation: ripple 4.8s linear infinite;
-}
-
-.moon-ring::after {
-  animation-delay: 2.4s;
-}
-
-@keyframes ripple {
-  0% { transform: scale(0.86); opacity: 0.45; }
-  100% { transform: scale(1.34); opacity: 0; }
-}
-
-.lock-hero {
+.hero-card {
   position: relative;
   z-index: 2;
-  max-width: 980px;
-  padding-top: 130px;
-  text-align: center;
+  width: min(100%, 930px);
+  padding: 34px 24px 28px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 18px 50px rgba(0,0,0,.20);
 }
 
-.eyebrow {
+.mini-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 18px;
+  gap: 8px;
+  padding: 11px 16px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: var(--pink-1);
-  margin-bottom: 18px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.09);
+  color: var(--rose-1);
+  font-size: 13px;
+  margin-bottom: 16px;
 }
 
-.eyebrow .dot {
+.mini-badge .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold-1), var(--pink-2));
-  box-shadow: 0 0 12px rgba(255, 124, 177, 0.5);
+  background: linear-gradient(135deg, var(--gold-1), var(--rose-2));
+  box-shadow: 0 0 12px rgba(255,130,184,.50);
 }
 
-.lock-title {
-  font-size: clamp(36px, 6vw, 82px);
-  line-height: 1.18;
+.hero-title {
+  font-size: clamp(34px, 5vw, 72px);
+  line-height: 1.2;
   color: var(--gold-1);
-  text-shadow: 0 0 28px rgba(255, 207, 109, 0.12);
-  letter-spacing: -0.5px;
+  text-shadow: 0 0 22px rgba(255,201,107,.12);
+  letter-spacing: -.4px;
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, var(--gold-1), var(--pink-1), var(--cyan-1));
+.hero-title .accent {
+  background: linear-gradient(90deg, var(--gold-1), var(--rose-1), var(--cyan));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  display: inline-block;
 }
 
-.lock-subtitle {
-  max-width: 820px;
+.hero-subtitle {
+  max-width: 800px;
   margin: 18px auto 0;
-  font-size: clamp(17px, 2.2vw, 24px);
-  color: var(--white-2);
+  font-size: clamp(18px, 2.2vw, 24px);
   line-height: 2;
+  color: var(--text-soft);
 }
 
-.lock-subtitle strong {
+.hero-subtitle strong {
   color: var(--gold-1);
   font-weight: 800;
 }
 
-.vault-wrap {
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
-}
-
-.vault {
-  width: min(100%, 720px);
-  padding: 24px;
-  border-radius: 30px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.05));
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: var(--shadow-2);
-  transform-style: preserve-3d;
-  position: relative;
-  overflow: hidden;
-}
-
-.vault::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 15%, rgba(255,255,255,0.09), transparent 20%),
-    radial-gradient(circle at 85% 20%, rgba(255,255,255,0.05), transparent 16%),
-    linear-gradient(120deg, transparent, rgba(255,255,255,0.05), transparent);
-  pointer-events: none;
-}
-
-.vault-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.vault-title {
-  font-size: 22px;
-  color: var(--white-1);
-}
-
-.vault-title small {
-  display: block;
-  color: var(--white-3);
-  font-size: 13px;
-  margin-top: 6px;
-  font-weight: normal;
-}
-
-.lock-status {
-  padding: 12px 14px;
-  min-width: 140px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
-  text-align: center;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-}
-
-.lock-status .label {
-  display: block;
-  color: var(--white-3);
-  font-size: 12px;
-  margin-bottom: 6px;
-}
-
-.lock-status strong {
-  color: var(--gold-1);
-  letter-spacing: 1.5px;
-  font-size: 14px;
-}
-
-.vault-grid {
+.lock-panel {
+  margin-top: 28px;
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 18px;
-  align-items: stretch;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 16px;
+  text-align: start;
 }
 
-.password-panel,
-.preview-panel {
-  border-radius: 24px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.10);
+.card-box {
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
   padding: 20px;
   position: relative;
   overflow: hidden;
 }
 
-.password-panel::before,
-.preview-panel::before {
+.card-box::before {
   content: "";
   position: absolute;
-  inset: auto -10% -40% auto;
-  width: 180px;
-  height: 180px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
-  filter: blur(30px);
-  opacity: 0.22;
+  filter: blur(34px);
+  opacity: .18;
+  pointer-events: none;
 }
 
-.password-panel::before {
-  background: radial-gradient(circle, rgba(255,207,109,0.6), transparent 70%);
+.card-box.gold::before {
+  left: -40px;
+  top: -55px;
+  background: radial-gradient(circle, rgba(255,201,107,.7), transparent 70%);
 }
 
-.preview-panel::before {
-  background: radial-gradient(circle, rgba(255,124,177,0.55), transparent 70%);
+.card-box.rose::before {
+  right: -40px;
+  bottom: -55px;
+  background: radial-gradient(circle, rgba(255,130,184,.65), transparent 70%);
 }
 
-.panel-kicker {
+.box-kicker {
   font-size: 12px;
-  color: var(--pink-1);
-  letter-spacing: 1.2px;
+  color: var(--rose-1);
+  letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
 
-.panel-title {
+.box-title {
   font-size: 24px;
   color: var(--gold-1);
   margin-bottom: 10px;
 }
 
-.panel-text {
-  color: var(--white-2);
-  line-height: 1.9;
+.box-text {
+  color: var(--text-soft);
+  line-height: 1.95;
   font-size: 15px;
 }
 
-.password-form {
+.field-wrap {
   margin-top: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  gap: 12px;
 }
 
 .password-field {
@@ -596,138 +441,108 @@ body::after {
 
 .password-field input {
   width: 100%;
-  padding: 18px 18px 18px 52px;
+  padding: 17px 18px 17px 52px;
   border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  font-size: 16px;
+  border: 1px solid rgba(255,255,255,.12);
   outline: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.06),
-    0 8px 24px rgba(0,0,0,0.12);
+  background: rgba(255,255,255,.08);
+  color: var(--white);
+  font-size: 16px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
   transition: border-color .2s ease, transform .2s ease;
 }
 
 .password-field input:focus {
-  border-color: rgba(255, 207, 109, 0.38);
+  border-color: rgba(255,201,107,.35);
   transform: translateY(-1px);
 }
 
 .password-field .icon {
   position: absolute;
-  inset-inline-start: 16px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 20px;
   color: var(--gold-2);
+  font-size: 20px;
 }
 
-.actions {
+.action-row {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
 }
 
-.btn,
-.ghost-btn,
-.mini-btn {
+button {
   appearance: none;
   border: none;
   cursor: pointer;
-  transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease);
   font-family: inherit;
+  transition: transform .22s var(--ease), box-shadow .22s var(--ease), opacity .22s ease;
 }
 
-.btn {
+button:hover { transform: translateY(-2px); }
+button:active { transform: translateY(0); }
+
+.btn-primary {
   padding: 16px 24px;
   border-radius: 18px;
   background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
-  color: #231400;
-  font-weight: 800;
+  color: #2a1800;
   font-size: 15px;
-  box-shadow: 0 14px 34px rgba(255,207,109,0.22);
+  font-weight: 800;
+  box-shadow: 0 14px 30px rgba(255,201,107,.20);
   min-width: 160px;
 }
 
-.btn:hover,
-.ghost-btn:hover,
-.mini-btn:hover {
-  transform: translateY(-2px);
-}
-
-.ghost-btn {
-  padding: 16px 20px;
+.btn-secondary {
+  padding: 16px 18px;
   border-radius: 18px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: var(--white-1);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--white);
   font-weight: 700;
 }
 
-.mini-btn {
+.btn-small {
   padding: 12px 16px;
   border-radius: 14px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: var(--white-1);
-  font-size: 13px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--white);
   font-weight: 700;
+  font-size: 13px;
 }
 
 .hint-row {
-  margin-top: 4px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-  color: var(--white-3);
+  color: var(--text-fade);
   font-size: 13px;
 }
 
 .hint-code {
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
   color: var(--gold-1);
-  letter-spacing: 0.4px;
+  letter-spacing: .4px;
 }
 
 .error {
-  min-height: 24px;
-  color: #ffc8db;
+  min-height: 22px;
+  color: #ffcddf;
   font-weight: 700;
   font-size: 14px;
-  margin-top: 4px;
 }
 
-.preview-card {
-  border-radius: 18px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
-  border: 1px solid rgba(255,255,255,0.10);
-  padding: 18px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+.preview-stage {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
   gap: 16px;
-}
-
-.preview-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  align-self: flex-start;
-  padding: 9px 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: var(--pink-1);
-  font-size: 12px;
 }
 
 .preview-visual {
@@ -738,308 +553,171 @@ body::after {
   transform-style: preserve-3d;
 }
 
-.gift-cube {
+.gift-box {
   position: relative;
-  width: 142px;
-  height: 142px;
+  width: 140px;
+  height: 140px;
   transform-style: preserve-3d;
-  animation: cubeFloat 7s ease-in-out infinite;
+  animation: floatBox 7s ease-in-out infinite;
 }
 
-.gift-cube .face {
+.gift-face {
   position: absolute;
   inset: 0;
-  border-radius: 28px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
-  backdrop-filter: blur(4px);
+  border-radius: 26px;
+  background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
 }
 
-.gift-cube .face.front  { transform: translateZ(70px); }
-.gift-cube .face.back   { transform: rotateY(180deg) translateZ(70px); }
-.gift-cube .face.right  { transform: rotateY(90deg) translateZ(70px); }
-.gift-cube .face.left   { transform: rotateY(-90deg) translateZ(70px); }
-.gift-cube .face.top    { transform: rotateX(90deg) translateZ(70px); }
-.gift-cube .face.bottom { transform: rotateX(-90deg) translateZ(70px); }
+.gift-face.front { transform: translateZ(70px); }
+.gift-face.back { transform: rotateY(180deg) translateZ(70px); }
+.gift-face.right { transform: rotateY(90deg) translateZ(70px); }
+.gift-face.left { transform: rotateY(-90deg) translateZ(70px); }
+.gift-face.top { transform: rotateX(90deg) translateZ(70px); }
+.gift-face.bottom { transform: rotateX(-90deg) translateZ(70px); }
 
-.gift-cube::before,
-.gift-cube::after {
+.gift-box::before,
+.gift-box::after {
   content: "";
   position: absolute;
   inset: 0;
   margin: auto;
   pointer-events: none;
+  z-index: 2;
 }
 
-.gift-cube::before {
-  width: 22px;
+.gift-box::before {
+  width: 20px;
   height: 100%;
-  background: linear-gradient(180deg, var(--pink-1), var(--pink-3));
-  border-radius: 18px;
-  transform: translateZ(1px);
-  box-shadow: 0 0 26px rgba(255,124,177,0.22);
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--rose-1), var(--rose-3));
+  box-shadow: 0 0 22px rgba(255,130,184,.20);
 }
 
-.gift-cube::after {
+.gift-box::after {
   width: 100%;
-  height: 22px;
-  background: linear-gradient(90deg, var(--pink-1), var(--pink-3));
-  border-radius: 18px;
+  height: 20px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, var(--rose-1), var(--rose-3));
   top: 50%;
-  transform: translateY(-50%) translateZ(1px);
-  box-shadow: 0 0 26px rgba(255,124,177,0.22);
+  transform: translateY(-50%);
+  box-shadow: 0 0 22px rgba(255,130,184,.20);
 }
 
-.ribbon-knot {
+.gift-knot {
   position: absolute;
-  top: -18px;
+  top: -16px;
   left: 50%;
-  transform: translateX(-50%) translateZ(70px);
-  width: 60px;
-  height: 34px;
+  transform: translateX(-50%) translateZ(75px);
+  width: 58px;
+  height: 32px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #fff1f7, var(--pink-2));
-  box-shadow: 0 14px 28px rgba(255,124,177,0.22);
+  background: linear-gradient(135deg, #fff4fa, var(--rose-2));
+  box-shadow: 0 12px 24px rgba(255,130,184,.18);
+  z-index: 3;
 }
 
-.ribbon-knot::before,
-.ribbon-knot::after {
+.gift-knot::before,
+.gift-knot::after {
   content: "";
   position: absolute;
   top: 3px;
-  width: 30px;
-  height: 24px;
-  border-radius: 20px 20px 6px 20px;
-  background: linear-gradient(135deg, #fff1f7, var(--pink-2));
+  width: 28px;
+  height: 22px;
+  border-radius: 20px 20px 5px 20px;
+  background: linear-gradient(135deg, #fff4fa, var(--rose-2));
 }
 
-.ribbon-knot::before {
-  left: -20px;
-  transform: rotate(28deg);
-}
-
-.ribbon-knot::after {
-  right: -20px;
-  transform: scaleX(-1) rotate(28deg);
-}
+.gift-knot::before { left: -18px; transform: rotate(26deg); }
+.gift-knot::after { right: -18px; transform: scaleX(-1) rotate(26deg); }
 
 .gift-shadow {
   position: absolute;
-  bottom: 10px;
-  width: 180px;
-  height: 34px;
+  bottom: 14px;
+  width: 170px;
+  height: 30px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,0,0,0.55), transparent 70%);
+  background: radial-gradient(circle, rgba(0,0,0,.55), transparent 70%);
   filter: blur(8px);
-  transform: translateZ(-60px);
 }
 
-@keyframes cubeFloat {
-  0%,100% { transform: rotateX(-12deg) rotateY(24deg) translateY(0px); }
-  25% { transform: rotateX(-9deg) rotateY(44deg) translateY(-8px); }
-  50% { transform: rotateX(-14deg) rotateY(62deg) translateY(-2px); }
-  75% { transform: rotateX(-10deg) rotateY(36deg) translateY(-10px); }
+@keyframes floatBox {
+  0%,100% { transform: rotateX(-12deg) rotateY(24deg) translateY(0); }
+  25% { transform: rotateX(-10deg) rotateY(42deg) translateY(-8px); }
+  50% { transform: rotateX(-13deg) rotateY(58deg) translateY(-2px); }
+  75% { transform: rotateX(-10deg) rotateY(34deg) translateY(-10px); }
 }
 
-.gift-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.stat {
-  border-radius: 16px;
-  padding: 12px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
+.preview-quote {
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--text-soft);
+  line-height: 1.9;
+  font-size: 15px;
   text-align: center;
-}
-
-.stat strong {
-  display: block;
-  color: var(--gold-1);
-  font-size: 16px;
-}
-
-.stat span {
-  display: block;
-  margin-top: 5px;
-  color: var(--white-3);
-  font-size: 12px;
-}
-
-.hero {
-  position: relative;
-  padding: 84px 22px 34px;
-  text-align: center;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at center top, rgba(255,207,109,0.16), transparent 30%),
-    linear-gradient(180deg, rgba(255,255,255,0.05), transparent);
-}
-
-.hero-grid {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 240px;
-  background:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 44px 44px;
-  transform: perspective(600px) rotateX(72deg) translateY(58px);
-  transform-origin: bottom center;
-  opacity: 0.25;
-  mask-image: linear-gradient(180deg, rgba(0,0,0,0.8), transparent);
-  pointer-events: none;
-}
-
-.hero-orbit {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.hero-orbit .ring {
-  position: absolute;
-  left: 50%;
-  top: 18%;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.08);
-  animation: orbitRotate linear infinite;
-}
-
-.hero-orbit .ring.one { width: 340px; height: 340px; animation-duration: 22s; }
-.hero-orbit .ring.two { width: 480px; height: 480px; animation-duration: 28s; animation-direction: reverse; }
-.hero-orbit .ring.three { width: 620px; height: 620px; animation-duration: 36s; }
-
-.hero-orbit .ring::before {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--gold-1), var(--gold-2));
-  top: 6%;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 18px rgba(255,207,109,0.35);
-}
-
-@keyframes orbitRotate {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to { transform: translateX(-50%) rotate(360deg); }
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
-  color: var(--pink-1);
-  position: relative;
-  z-index: 2;
-}
-
-.hero-title {
-  position: relative;
-  z-index: 2;
-  margin-top: 18px;
-  font-size: clamp(34px, 5.6vw, 80px);
-  line-height: 1.2;
-  color: var(--gold-1);
-  text-shadow: 0 0 28px rgba(255,207,109,0.12);
-  letter-spacing: -0.6px;
-}
-
-.hero-subtitle {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  margin: 18px auto 0;
-  font-size: clamp(18px, 2.3vw, 25px);
-  line-height: 2;
-  color: var(--white-2);
-}
-
-.hero-signature {
-  position: relative;
-  z-index: 2;
-  margin-top: 24px;
-  font-size: clamp(20px, 2.5vw, 32px);
-  color: var(--pink-1);
-  font-weight: 800;
-  text-shadow: 0 0 22px rgba(255,124,177,0.12);
 }
 
 .content {
-  padding: 0 22px 28px;
+  padding: 0 22px 26px;
 }
 
 .section {
-  position: relative;
   margin-top: 18px;
   border-radius: 28px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-  border: 1px solid rgba(255,255,255,0.10);
-  padding: 26px 22px;
-  box-shadow: var(--shadow-2);
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 24px 22px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.16);
+  position: relative;
   overflow: hidden;
-  transform-style: preserve-3d;
 }
 
-.section::before {
-  content: "";
-  position: absolute;
-  inset: -30% auto auto -10%;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  filter: blur(34px);
-  opacity: 0.16;
-  background: radial-gradient(circle, rgba(255,207,109,0.7), transparent 70%);
-  pointer-events: none;
-}
-
+.section::before,
 .section::after {
   content: "";
   position: absolute;
-  inset: auto -8% -30% auto;
   width: 220px;
   height: 220px;
   border-radius: 50%;
   filter: blur(34px);
-  opacity: 0.16;
-  background: radial-gradient(circle, rgba(255,124,177,0.6), transparent 70%);
+  opacity: .16;
   pointer-events: none;
 }
 
+.section::before {
+  left: -80px;
+  top: -80px;
+  background: radial-gradient(circle, rgba(255,201,107,.75), transparent 70%);
+}
+
+.section::after {
+  right: -80px;
+  bottom: -80px;
+  background: radial-gradient(circle, rgba(255,130,184,.70), transparent 70%);
+}
+
 .section-head {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 18px;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 16px;
 }
 
 .section-title {
-  font-size: clamp(24px, 3.4vw, 40px);
+  font-size: clamp(24px, 3.2vw, 38px);
   color: var(--gold-1);
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .section-caption {
-  max-width: 540px;
-  color: var(--white-3);
+  max-width: 520px;
+  color: var(--text-fade);
   line-height: 1.8;
   font-size: 14px;
 }
@@ -1048,34 +726,27 @@ body::after {
   position: relative;
   z-index: 2;
   border-radius: 24px;
-  padding: 28px 22px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 28px 20px;
   text-align: center;
 }
 
 .grand-line {
-  font-size: clamp(24px, 3.6vw, 46px);
+  font-size: clamp(24px, 3.4vw, 44px);
   line-height: 1.8;
-  color: var(--white-1);
+  color: var(--white);
   font-weight: 800;
-  text-shadow: 0 0 18px rgba(255,255,255,0.06);
+  text-shadow: 0 0 20px rgba(255,255,255,.05);
 }
 
-.grand-line .gold {
-  color: var(--gold-1);
-}
+.gold-text { color: var(--gold-1); }
+.rose-text { color: var(--rose-1); }
 
-.grand-line .pink {
-  color: var(--pink-1);
-}
-
-.typewriter-wrap {
+.message-wrap {
   position: relative;
   z-index: 2;
-  min-height: 460px;
+  min-height: 430px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1084,14 +755,12 @@ body::after {
 .message-card {
   width: 100%;
   border-radius: 24px;
-  padding: 24px 22px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.05));
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 24px 20px;
 }
 
-.message-top {
+.message-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1100,107 +769,87 @@ body::after {
   flex-wrap: wrap;
 }
 
-.message-top .meta {
+.meta-pills {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--white-3);
-  font-size: 13px;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.message-top .meta-badge {
-  padding: 10px 12px;
+.meta-pill {
+  padding: 9px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: var(--pink-1);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  color: var(--rose-1);
+  font-size: 12px;
 }
 
 .message-body {
-  font-size: clamp(18px, 2.2vw, 25px);
-  line-height: 2.15;
-  color: var(--white-1);
-  text-align: center;
+  min-height: 280px;
   white-space: pre-line;
-  min-height: 300px;
+  text-align: center;
+  font-size: clamp(18px, 2.1vw, 24px);
+  line-height: 2.15;
+  color: var(--white);
 }
 
 .caret {
   display: inline-block;
   width: 10px;
   color: var(--gold-1);
-  animation: blink 1s steps(1) infinite;
   font-weight: 800;
+  animation: blink 1s steps(1) infinite;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
-}
+@keyframes blink { 50% { opacity: 0; } }
 
-.tiers {
+.cards-grid {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
-.tier {
-  position: relative;
-  overflow: hidden;
+.info-card {
   border-radius: 22px;
-  padding: 22px 18px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.05));
-  border: 1px solid rgba(255,255,255,0.10);
+  padding: 20px 18px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.09);
   text-align: center;
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
 }
 
-.tier::before {
-  content: "";
-  position: absolute;
-  inset: -50% auto auto -30%;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
-  filter: blur(20px);
-  opacity: 0.8;
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 32px rgba(0,0,0,.16);
 }
 
-.tier:hover {
-  transform: translateY(-6px) rotateX(4deg);
-  box-shadow: 0 22px 40px rgba(0,0,0,0.22);
-  border-color: rgba(255,207,109,0.18);
-}
-
-.tier-icon {
-  width: 64px;
-  height: 64px;
+.info-icon {
+  width: 62px;
+  height: 62px;
   margin: 0 auto 12px;
   border-radius: 20px;
   display: grid;
   place-items: center;
-  font-size: 30px;
-  background: linear-gradient(135deg, rgba(255,207,109,0.20), rgba(255,124,177,0.15));
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  font-size: 28px;
+  background: linear-gradient(135deg, rgba(255,201,107,.18), rgba(255,130,184,.16));
+  border: 1px solid rgba(255,255,255,.08);
 }
 
-.tier h3 {
+.info-card h3 {
   color: var(--gold-1);
-  font-size: 22px;
   margin-bottom: 10px;
+  font-size: 22px;
 }
 
-.tier p {
-  color: var(--white-2);
+.info-card p {
+  color: var(--text-soft);
   line-height: 1.9;
   font-size: 15px;
 }
 
-.luxury-grid {
+.quote-grid {
   position: relative;
   z-index: 2;
   display: grid;
@@ -1209,27 +858,11 @@ body::after {
 }
 
 .quote-wall,
-.honor-panel {
+.meter-panel {
   border-radius: 24px;
-  padding: 22px 20px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
-  position: relative;
-  overflow: hidden;
-}
-
-.quote-wall::before,
-.honor-panel::before {
-  content: "";
-  position: absolute;
-  inset: auto -20% -30% auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(154,125,255,0.35), transparent 70%);
-  filter: blur(34px);
-  opacity: 0.24;
-  pointer-events: none;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.09);
+  padding: 20px;
 }
 
 .quote-stack {
@@ -1239,108 +872,105 @@ body::after {
 
 .quote-item {
   border-radius: 18px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
   padding: 18px 16px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: var(--white-1);
-  line-height: 1.9;
+  color: var(--white);
   font-size: 18px;
+  line-height: 1.9;
 }
 
-.quote-item b {
-  color: var(--gold-1);
-}
+.quote-item b { color: var(--gold-1); }
 
-.honor-meters {
+.meter-panel .box-title { margin-bottom: 8px; }
+
+.meter-list {
   display: grid;
   gap: 14px;
-  margin-top: 10px;
+  margin-top: 14px;
 }
 
-.meter-row {
-  display: grid;
-  gap: 8px;
-}
+.meter-row { display: grid; gap: 8px; }
 
 .meter-label {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  color: var(--white-2);
+  gap: 12px;
+  color: var(--text-soft);
   font-size: 14px;
 }
 
 .meter-track {
   height: 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 .meter-fill {
   height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--gold-1), var(--pink-2), var(--cyan-1));
   width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--gold-1), var(--rose-2), var(--cyan));
   transition: width 1.8s var(--ease);
-  box-shadow: 0 0 18px rgba(255,207,109,0.18);
+  box-shadow: 0 0 18px rgba(255,201,107,.18);
 }
 
-.signature-stage {
+.closing-card {
   position: relative;
   z-index: 2;
-  padding: 20px;
   border-radius: 24px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
-  border: 1px solid rgba(255,255,255,0.10);
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border: 1px solid rgba(255,255,255,.10);
   text-align: center;
+  padding: 26px 20px;
   overflow: hidden;
 }
 
-.signature-stage::before {
+.closing-card::before {
   content: "";
   position: absolute;
-  inset: -40% auto auto 50%;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,207,109,0.24), transparent 68%);
+  left: 50%;
+  top: -120px;
   transform: translateX(-50%);
-  filter: blur(20px);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,201,107,.22), transparent 70%);
+  filter: blur(22px);
   pointer-events: none;
 }
 
-.signature-title {
+.closing-title {
+  position: relative;
+  z-index: 1;
   color: var(--gold-1);
-  font-size: clamp(22px, 3vw, 36px);
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 1;
+  font-size: clamp(24px, 3vw, 34px);
+  margin-bottom: 12px;
 }
 
-.signature-text {
+.closing-text {
   position: relative;
   z-index: 1;
-  font-size: clamp(28px, 4vw, 48px);
-  color: var(--pink-1);
+  font-size: clamp(28px, 3.8vw, 48px);
+  line-height: 1.7;
+  color: var(--rose-1);
   font-weight: 800;
-  text-shadow: 0 0 24px rgba(255,124,177,0.14);
-  line-height: 1.6;
+  text-shadow: 0 0 20px rgba(255,130,184,.10);
 }
 
-.signature-note {
+.closing-note {
   position: relative;
   z-index: 1;
-  margin-top: 10px;
-  color: var(--white-3);
-  line-height: 1.8;
+  margin-top: 12px;
+  color: var(--text-soft);
+  line-height: 1.9;
   font-size: 15px;
 }
 
-.control-row {
+.controls {
   position: relative;
   z-index: 2;
   display: flex;
@@ -1352,276 +982,144 @@ body::after {
 
 .footer {
   text-align: center;
-  padding: 10px 24px 28px;
-  color: var(--white-3);
+  padding: 10px 22px 28px;
+  color: var(--text-fade);
   font-size: 14px;
   line-height: 1.8;
 }
 
-.heart,
-.particle,
-.orb {
-  position: absolute;
-  bottom: -60px;
-  opacity: 0;
-  animation: rise linear infinite;
-}
-
-.heart {
-  color: rgba(255, 183, 211, 0.28);
-  filter: drop-shadow(0 0 14px rgba(255,124,177,0.22));
-}
-
-.particle {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 223, 155, 0.40);
-  box-shadow: 0 0 18px rgba(255,207,109,0.32);
-}
-
-.orb {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.95), rgba(255,207,109,0.38));
-  filter: blur(2px);
-  opacity: 0.18;
-}
-
-@keyframes rise {
-  0% {
-    transform: translateY(0) scale(.7) rotate(0deg);
-    opacity: 0;
-  }
-  12% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-120vh) scale(1.2) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.flash-item {
-  position: absolute;
-  font-size: 24px;
-  transition: transform 1.35s ease, opacity 1.35s ease;
-  opacity: 1;
-  will-change: transform, opacity;
-}
-
 .audio-toggle {
   position: fixed;
-  inset-inline-end: 18px;
+  right: 18px;
   bottom: 18px;
   z-index: 5;
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   border-radius: 18px;
   display: grid;
   place-items: center;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 14px 32px rgba(0,0,0,0.24);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.10);
   color: var(--gold-1);
+  box-shadow: 0 14px 28px rgba(0,0,0,.20);
   cursor: pointer;
-  user-select: none;
   backdrop-filter: blur(18px);
+  user-select: none;
 }
 
-.audio-toggle span {
-  font-size: 24px;
-}
+.audio-toggle span { font-size: 22px; }
 
-.hide {
-  display: none !important;
-}
+.hidden { display: none !important; }
 
-@media (max-width: 1080px) {
-  .vault-grid,
-  .luxury-grid {
+@media (max-width: 980px) {
+  .lock-panel,
+  .quote-grid,
+  .cards-grid {
     grid-template-columns: 1fr;
-  }
-
-  .tiers {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 760px) {
-  .app {
-    padding: 14px;
-  }
-
-  .topbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .brand {
-    justify-content: center;
-  }
-
-  .chips {
-    justify-content: center;
-  }
-
+  .app { padding: 12px; }
+  .topbar { flex-direction: column; align-items: stretch; }
+  .brand { justify-content: center; }
+  .badge-row { justify-content: center; }
   .lock-screen,
   .gift-screen,
-  .content {
-    padding-inline: 14px;
-  }
-
-  .hero {
-    padding-top: 72px;
-  }
-
-  .typewriter-wrap {
-    min-height: 560px;
-  }
-
-  .tiers,
-  .gift-stats {
-    grid-template-columns: 1fr;
-  }
-
+  .content { padding-inline: 14px; }
+  .hero { padding-top: 74px; }
+  .message-wrap { min-height: 560px; }
   .section-head,
-  .message-top,
-  .vault-top {
-    flex-direction: column;
-    align-items: stretch;
-  }
+  .message-head { flex-direction: column; align-items: stretch; }
+  .action-row,
+  .controls { justify-content: stretch; }
+  .btn-primary,
+  .btn-secondary,
+  .btn-small { width: 100%; }
 }
 
   </style>
 </head>
 <body>
-  <div class="scene"></div>
   <div class="aurora"></div>
-  <div class="light-rays"></div>
   <div class="hearts-layer" id="heartsLayer"></div>
   <div class="particle-layer" id="particleLayer"></div>
-  <div class="orbs-layer" id="orbsLayer"></div>
-  <div class="burst-layer" id="burstLayer"></div>  <div class="audio-toggle" id="audioToggle" title="تشغيل أو إيقاف الموسيقى" aria-label="audio toggle">
+  <div class="burst-layer" id="burstLayer"></div>  <div class="audio-toggle" id="audioToggle" aria-label="toggle audio" title="تشغيل أو إيقاف الموسيقى">
     <span id="audioIcon">♪</span>
   </div>  <div class="app">
     <div class="shell" id="shell3d">
-      <div class="halo"></div>
+      <div class="glow"></div>
       <div class="frame">
         <div class="topbar">
           <div class="brand">
-            <div class="brand-badge">AH</div>
+            <div class="brand-icon">AH</div>
             <div class="brand-text">
-              <strong>VIP Eid Gift Experience</strong>
-              <span>Ultra Luxury • Pro • 3D • From Ali Hazem</span>
+              <strong>هدية عيد فطر خاصة</strong>
+              <span>تصميم فاخر جدًا باسم علي حازم</span>
             </div>
           </div>
-          <div class="chips">
-            <div class="chip">VIP</div>
-            <div class="chip">PRO</div>
-            <div class="chip">PLUS</div>
-            <div class="chip">3D LUXURY</div>
+          <div class="badge-row">
+            <div class="badge">VIP</div>
+            <div class="badge">LUXURY</div>
+            <div class="badge">3D STYLE</div>
+            <div class="badge">EID GIFT</div>
           </div>
         </div><div class="screen">
-      <div class="grid-bg"></div>
-
       <section class="lock-screen" id="lockScreen">
-        <div class="stage">
-          <div class="moon-ring">
-            <div class="moon"></div>
-          </div>
-
-          <div class="lock-hero">
-            <div class="eyebrow">
-              <span class="dot"></span>
-              <span>Exclusive Eid Presentation</span>
-            </div>
-
-            <h1 class="lock-title">
-              هدية <span class="gradient-text">أسطورية</span><br>
-              مصممة لتقول له كم هو عظيم عندك
-            </h1>
-
-            <p class="lock-subtitle">
-              هذا ليس تصميمًا عاديًا… بل تجربة رقمية فاخرة جدًا،
-              صُممت حتى يشعر الشخص من أول ثانية بأنه <strong>مهم، عزيز، نادر، وصاحب مكانة عالية جدًا</strong> عندك.
+        <div class="hero moon-rings">
+          <div class="moon"></div>
+          <div class="hero-card">
+            <div class="mini-badge"><span class="dot"></span><span>هدية إلكترونية خاصة جدًا</span></div>
+            <h1 class="hero-title">كل عام وأنت بخير…<br><span class="accent">وبمكانتك الكبيرة عندي</span></h1>
+            <p class="hero-subtitle">
+              صممت هذه الهدية خصيصًا لك حتى تصلك مشاعري بشكل يليق بك،
+              وتعرف أن لك <strong>قدرًا عاليًا</strong> ومكانة مختلفة لا تشبه أحدًا.
             </p>
 
-            <div class="vault-wrap">
-              <div class="vault">
-                <div class="vault-top">
-                  <div class="vault-title">
-                    بوابة الهدية الخاصة
-                    <small>الدخول بكلمة سر يضيف رهبة وفخامة للمفاجأة</small>
-                  </div>
-                  <div class="lock-status">
-                    <span class="label">Access</span>
-                    <strong>PRIVATE</strong>
-                  </div>
+            <div class="lock-panel">
+              <div class="card-box gold">
+                <div class="box-kicker">Private Access</div>
+                <div class="box-title">افتح الهدية</div>
+                <div class="box-text">
+                  الهدية محمية بكلمة سر، وبعد فتحها ستظهر لك رسالة كاملة مكتوبة خصيصًا لتبين كم أنت عزيز، مهم، وغالٍ عندي.
                 </div>
 
-                <div class="vault-grid">
-                  <div class="password-panel">
-                    <div class="panel-kicker">Protected Entry</div>
-                    <div class="panel-title">افتح التحفة</div>
-                    <div class="panel-text">
-                      أدخل كلمة السر حتى تنفتح الهدية وتبدأ التجربة السينمائية الكاملة.
-                      بعد الفتح ستظهر رسالة مهيبة، مؤثرة، وفخمة جدًا مصممة لتبقى في الذاكرة.
-                    </div>
-
-                    <div class="password-form">
-                      <div class="password-field">
-                        <span class="icon">🔐</span>
-                        <input id="passwordInput" type="password" placeholder="اكتب كلمة السر هنا" autocomplete="off" />
-                      </div>
-
-                      <div class="actions">
-                        <button class="btn" id="openBtn">فتح الهدية</button>
-                        <button class="ghost-btn" id="showHintBtn" type="button">إظهار التلميح</button>
-                      </div>
-
-                      <div class="hint-row">
-                        <span>التلميح:</span>
-                        <span class="hint-code" id="hintText">•••• ••• •••</span>
-                      </div>
-
-                      <div class="error" id="errorText"></div>
-                    </div>
+                <div class="field-wrap">
+                  <div class="password-field">
+                    <span class="icon">🔐</span>
+                    <input id="passwordInput" type="password" placeholder="اكتب كلمة السر هنا" autocomplete="off" />
                   </div>
 
-                  <div class="preview-panel">
-                    <div class="preview-card">
-                      <div class="preview-badge">Luxury Preview</div>
+                  <div class="action-row">
+                    <button class="btn-primary" id="openBtn" type="button">فتح الهدية</button>
+                    <button class="btn-secondary" id="hintBtn" type="button">إظهار التلميح</button>
+                  </div>
 
-                      <div class="preview-visual">
-                        <div class="gift-shadow"></div>
-                        <div class="gift-cube">
-                          <div class="face front"></div>
-                          <div class="face back"></div>
-                          <div class="face right"></div>
-                          <div class="face left"></div>
-                          <div class="face top"></div>
-                          <div class="face bottom"></div>
-                          <div class="ribbon-knot"></div>
-                        </div>
-                      </div>
+                  <div class="hint-row">
+                    <span>كلمة السر:</span>
+                    <span class="hint-code" id="hintCode">•••• ••• •••</span>
+                  </div>
 
-                      <div class="gift-stats">
-                        <div class="stat">
-                          <strong>VIP</strong>
-                          <span>ستايل راقٍ</span>
-                        </div>
-                        <div class="stat">
-                          <strong>3D</strong>
-                          <span>حركة وفخامة</span>
-                        </div>
-                        <div class="stat">
-                          <strong>LOVE</strong>
-                          <span>رسالة عزاز</span>
-                        </div>
-                      </div>
+                  <div class="error" id="errorText"></div>
+                </div>
+              </div>
+
+              <div class="card-box rose">
+                <div class="preview-stage">
+                  <div class="preview-visual">
+                    <div class="gift-shadow"></div>
+                    <div class="gift-box">
+                      <div class="gift-face front"></div>
+                      <div class="gift-face back"></div>
+                      <div class="gift-face right"></div>
+                      <div class="gift-face left"></div>
+                      <div class="gift-face top"></div>
+                      <div class="gift-face bottom"></div>
+                      <div class="gift-knot"></div>
                     </div>
+                  </div>
+                  <div class="preview-quote">
+                    هدية مصممة بكل حب، حتى من أول لحظة يشعر من يفتحها أن الكلام كله مكتوب له هو فقط.
                   </div>
                 </div>
               </div>
@@ -1631,24 +1129,16 @@ body::after {
       </section>
 
       <section class="gift-screen" id="giftScreen">
-        <div class="hero">
-          <div class="hero-orbit">
-            <div class="ring one"></div>
-            <div class="ring two"></div>
-            <div class="ring three"></div>
+        <div class="hero moon-rings">
+          <div class="moon"></div>
+          <div class="hero-card">
+            <div class="mini-badge"><span class="dot"></span><span>من علي حازم</span></div>
+            <h2 class="hero-title">كل عام وأنت بخير…<br><span class="accent">وأجمل من يوصل له الكلام</span></h2>
+            <p class="hero-subtitle">
+              هذه ليست رسالة جاهزة، بل هدية كتبتها وصممتها خصيصًا لك،
+              حتى تشعر كم أنت <strong>عظيم، عزيز، وصاحب مكانة غالية</strong> عندي.
+            </p>
           </div>
-
-          <div class="hero-badge">عيد فطر مبارك • A Rare Person Deserves a Rare Gift</div>
-          <h2 class="hero-title">
-            كل عام وأنت بخير…<br>
-            وبمكانتك العالية التي لا تشبه أحدًا
-          </h2>
-          <p class="hero-subtitle">
-            بعض الناس يكفيهم كلام بسيط، لكن هناك أشخاص يحتاجون رسالة تليق بهم فعلًا.<br>
-            وأنت من هؤلاء الأشخاص الذين لا يُعاملون بعاديّة… لأن قيمتك، وعزّتك، وأثرك أكبر من الوصف.
-          </p>
-          <div class="hero-signature">من علي حازم</div>
-          <div class="hero-grid"></div>
         </div>
 
         <div class="content">
@@ -1656,14 +1146,15 @@ body::after {
             <div class="section-head">
               <div>
                 <div class="section-title">مقامك عندي</div>
-                <div class="section-caption">بداية قوية ومهيبة توصل الفكرة مباشرة: هذا الشخص عزيز جدًا وعظيم المكانة.</div>
+                <div class="section-caption">رسالة افتتاحية قوية حتى يعرف من يفتح الصفحة أن هذه الهدية مخصصة له وحده.</div>
               </div>
-              <button class="mini-btn" id="flashBtn" type="button">إطلاق التأثير</button>
+              <button class="btn-small" id="flashBtn" type="button">تأثير إضافي</button>
             </div>
+
             <div class="grand-card">
               <div class="grand-line">
                 أنت لست شخصًا عاديًا بالنسبة إلي…<br>
-                أنت <span class="gold">قيمة</span>، و<span class="pink">عِزّة</span>، ووجودك يصنع فرقًا جميلًا لا يُنسى.
+                أنت <span class="gold-text">قيمة</span>، و<span class="rose-text">عزّة</span>، ووجودك يترك أثرًا جميلًا لا يُنسى.
               </div>
             </div>
           </section>
@@ -1671,22 +1162,21 @@ body::after {
           <section class="section">
             <div class="section-head">
               <div>
-                <div class="section-title">رسالة تظهر بأسلوب سينمائي</div>
-                <div class="section-caption">يتم عرض الرسالة حرفًا حرفًا حتى تعطي شعور الفخامة والتركيز الكامل على كل كلمة.</div>
+                <div class="section-title">رسالة خاصة لك</div>
+                <div class="section-caption">الرسالة تظهر بأسلوب أنيق حرفًا حرفًا حتى تبين أنها مكتوبة بعناية وموجهة لك وحدك.</div>
               </div>
-              <button class="mini-btn" id="replayBtn" type="button">إعادة الرسالة</button>
+              <button class="btn-small" id="replayBtn" type="button">إعادة الرسالة</button>
             </div>
 
-            <div class="typewriter-wrap">
+            <div class="message-wrap">
               <div class="message-card">
-                <div class="message-top">
-                  <div class="meta">
-                    <div class="meta-badge">Private Eid Letter</div>
-                    <span>Luxury Mode Enabled</span>
+                <div class="message-head">
+                  <div class="meta-pills">
+                    <div class="meta-pill">رسالة خاصة</div>
+                    <div class="meta-pill">عيد فطر مبارك</div>
                   </div>
-                  <div class="meta">
-                    <span>From:</span>
-                    <strong style="color: var(--gold-1);">Ali Hazem</strong>
+                  <div class="meta-pills">
+                    <div class="meta-pill">من علي حازم</div>
                   </div>
                 </div>
                 <div class="message-body" id="typewriter"></div>
@@ -1697,45 +1187,28 @@ body::after {
           <section class="section">
             <div class="section-head">
               <div>
-                <div class="section-title">لماذا هذه الهدية مختلفة؟</div>
-                <div class="section-caption">كل بطاقة هنا تعزز الشعور بالمكانة، العزاز، والاحترام الكبير.</div>
+                <div class="section-title">ليش هذه الهدية مختلفة؟</div>
+                <div class="section-caption">كل جزء هنا معموله حتى يعطي شعور بالمكانة والعزاز والاحترام الكبير.</div>
               </div>
             </div>
 
-            <div class="tiers">
-              <article class="tier">
-                <div class="tier-icon">👑</div>
+            <div class="cards-grid">
+              <article class="info-card">
+                <div class="info-icon">👑</div>
                 <h3>مكانة</h3>
-                <p>
-                  لأن بعض الأشخاص لا يكفيهم سلام أو تهنئة عابرة،
-                  بل يستحقون شيئًا يليق بقدرهم الحقيقي ومقامهم العالي.
-                </p>
+                <p>لأن بعض الأشخاص لا يليق بهم إلا شيء يوضح قدرهم الحقيقي ويعطيهم الإحساس الذي يستحقونه.</p>
               </article>
 
-              <article class="tier">
-                <div class="tier-icon">🤍</div>
+              <article class="info-card">
+                <div class="info-icon">🤍</div>
                 <h3>عزاز</h3>
-                <p>
-                  العزاز الحقيقي يظهر في التفاصيل…
-                  وهذه الهدية كلها تفصيل واحد كبير يقول: أنت غالٍ جدًا عندي.
-                </p>
+                <p>هذه الصفحة كلها مبنية حتى توصل معنى واحد: أنت غالٍ جدًا، ومحل تقدير صادق وكبير.</p>
               </article>
 
-              <article class="tier">
-                <div class="tier-icon">✨</div>
+              <article class="info-card">
+                <div class="info-icon">✨</div>
                 <h3>تميّز</h3>
-                <p>
-                  ليست رسالة تقليدية، بل تجربة كاملة تعطي انطباعًا بأنه شخص نادر ويستحق شيئًا مميزًا جدًا.
-                </p>
-              </article>
-
-              <article class="tier">
-                <div class="tier-icon">🌙</div>
-                <h3>عيد مختلف</h3>
-                <p>
-                  عيد الفطر هنا ليس مجرد مناسبة…
-                  بل لحظة راقية تُظهر كم هو هذا الشخص مهم وعظيم في قلبك.
-                </p>
+                <p>مو مجرد تهنئة، بل هدية كاملة تحسسك من تصميمها وكلامها أنها مخصصة لك وحدك.</p>
               </article>
             </div>
           </section>
@@ -1743,46 +1216,42 @@ body::after {
           <section class="section">
             <div class="section-head">
               <div>
-                <div class="section-title">عبارات تهنئة وعِزّة</div>
-                <div class="section-caption">مجموعة عبارات قوية ومرتبة، كلها معمولة حتى يشعر الشخص بقيمته ومهابته لديك.</div>
+                <div class="section-title">عبارات عزاز وتهنئة</div>
+                <div class="section-caption">عبارات مرتبة وفخمة تعزز الإحساس بأن هذه الهدية تحفة خاصة ومكتوبة من القلب.</div>
               </div>
             </div>
 
-            <div class="luxury-grid">
+            <div class="quote-grid">
               <div class="quote-wall">
                 <div class="quote-stack">
-                  <div class="quote-item">كل عام وأنت <b>أغلى</b> من الكلام، وأقرب إلى القلب من كل وصف.</div>
-                  <div class="quote-item">وجودك ليس مرورًا عاديًا… بل <b>أثر جميل</b> يبقى ويحترم نفسه بنفسه.</div>
-                  <div class="quote-item">أنت من الأشخاص الذين إذا حضروا، <b>اكتملت الهيبة</b> وصار للمكان معنى أجمل.</div>
-                  <div class="quote-item">مكانتك عندي ليست مجاملة… بل <b>حقيقة ثابتة</b> تعرفها القلوب قبل الكلمات.</div>
-                  <div class="quote-item">عيدك يليق بك: <b>رفيع</b>، هادئ، أنيق، ومليء بتقدير يوازي مقامك.</div>
+                  <div class="quote-item">كل عام وأنت <b>أغلى</b> من كل الكلام، وأقرب إلى القلب من أي وصف.</div>
+                  <div class="quote-item">وجودك ليس عابرًا، بل <b>أثر جميل</b> يبقى ويترك احترامه في القلب.</div>
+                  <div class="quote-item">أنت من الناس الذين إذا حضروا صار للمكان <b>هيبة خاصة</b> ومعنى أجمل.</div>
+                  <div class="quote-item">مكانتك عندي ليست مجاملة، بل <b>حقيقة ثابتة</b> تعرفها المشاعر قبل الكلمات.</div>
                 </div>
               </div>
 
-              <div class="honor-panel">
-                <div class="panel-kicker">Honor Meter</div>
-                <div class="panel-title">مؤشر مكانتك</div>
-                <div class="panel-text">
-                  مجرد لمسة تصميمية تبين أن كل شيء في هذه الصفحة يدور حول فكرة واحدة:
-                  أنت شخص له وزن، قدر، واحترام كبير.
-                </div>
+              <div class="meter-panel">
+                <div class="box-kicker">Honor Meter</div>
+                <div class="box-title">مؤشر مكانتك</div>
+                <div class="box-text">تفصيل أنيق يبين أن كل شيء هنا معمول حتى يوضح قدرك الكبير عندي.</div>
 
-                <div class="honor-meters">
+                <div class="meter-list">
                   <div class="meter-row">
                     <div class="meter-label"><span>العزاز</span><span>100%</span></div>
                     <div class="meter-track"><div class="meter-fill" data-width="100"></div></div>
                   </div>
                   <div class="meter-row">
-                    <div class="meter-label"><span>الاحترام</span><span>98%</span></div>
-                    <div class="meter-track"><div class="meter-fill" data-width="98"></div></div>
+                    <div class="meter-label"><span>التقدير</span><span>99%</span></div>
+                    <div class="meter-track"><div class="meter-fill" data-width="99"></div></div>
                   </div>
                   <div class="meter-row">
                     <div class="meter-label"><span>المكانة</span><span>100%</span></div>
                     <div class="meter-track"><div class="meter-fill" data-width="100"></div></div>
                   </div>
                   <div class="meter-row">
-                    <div class="meter-label"><span>التقدير</span><span>99%</span></div>
-                    <div class="meter-track"><div class="meter-fill" data-width="99"></div></div>
+                    <div class="meter-label"><span>الاحترام</span><span>98%</span></div>
+                    <div class="meter-track"><div class="meter-fill" data-width="98"></div></div>
                   </div>
                 </div>
               </div>
@@ -1793,32 +1262,32 @@ body::after {
             <div class="section-head">
               <div>
                 <div class="section-title">الختم الأخير</div>
-                <div class="section-caption">نهاية فخمة جدًا تبقى راسخة في الذهن بعد مشاهدة الهدية.</div>
+                <div class="section-caption">نهاية أنيقة تبقى في الذاكرة وتأكد أن الهدية كلها مكتوبة ومصممة له هو.</div>
               </div>
             </div>
 
-            <div class="signature-stage">
-              <div class="signature-title">رسالة أخيرة</div>
-              <div class="signature-text">
+            <div class="closing-card">
+              <div class="closing-title">رسالة أخيرة</div>
+              <div class="closing-text">
                 عيدك فرح…<br>
                 وقلبك مطمئن…<br>
                 وقدرك عالٍ…<br>
                 لأنك فعلًا شخص عظيم وعزيز.
               </div>
-              <div class="signature-note">
-                هذه الهدية صُممت بعناية حتى تشعر أن كل عنصر فيها يقول لك: مكانتك كبيرة جدًا ومحل تقدير دائم.
+              <div class="closing-note">
+                صممت هذه الهدية خصيصًا لك حتى تشعر أن كل تفصيل فيها يعبّر عن مكانتك الحقيقية عندي.
               </div>
             </div>
 
-            <div class="control-row">
-              <button class="btn" id="restartBtn" type="button">إعادة التجربة كاملة</button>
-              <button class="ghost-btn" id="scrollTopBtn" type="button">العودة للأعلى</button>
+            <div class="controls">
+              <button class="btn-primary" id="restartBtn" type="button">إعادة التجربة</button>
+              <button class="btn-secondary" id="topBtn" type="button">العودة للأعلى</button>
             </div>
           </section>
         </div>
 
         <div class="footer">
-          صُممت هذه التحفة الرقمية بأسلوب فاخر جدًا • 3D Luxury Experience • VIP Eid Gift • From Ali Hazem
+          هدية رقمية مصممة باسم <strong style="color: var(--gold-1);">علي حازم</strong> • عيد فطر مبارك
         </div>
       </section>
     </div>
@@ -1830,129 +1299,134 @@ body::after {
   </audio>  <script>
     const PASSWORD = 'I love you';
 
+    const shell3d = document.getElementById('shell3d');
+    const heartsLayer = document.getElementById('heartsLayer');
+    const particleLayer = document.getElementById('particleLayer');
+    const burstLayer = document.getElementById('burstLayer');
+
     const lockScreen = document.getElementById('lockScreen');
     const giftScreen = document.getElementById('giftScreen');
     const passwordInput = document.getElementById('passwordInput');
-    const errorText = document.getElementById('errorText');
     const openBtn = document.getElementById('openBtn');
-    const showHintBtn = document.getElementById('showHintBtn');
-    const hintText = document.getElementById('hintText');
-    const typewriter = document.getElementById('typewriter');
+    const hintBtn = document.getElementById('hintBtn');
+    const hintCode = document.getElementById('hintCode');
+    const errorText = document.getElementById('errorText');
+
+    const flashBtn = document.getElementById('flashBtn');
     const replayBtn = document.getElementById('replayBtn');
     const restartBtn = document.getElementById('restartBtn');
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    const flashBtn = document.getElementById('flashBtn');
-    const heartsLayer = document.getElementById('heartsLayer');
-    const particleLayer = document.getElementById('particleLayer');
-    const orbsLayer = document.getElementById('orbsLayer');
-    const burstLayer = document.getElementById('burstLayer');
-    const shell3d = document.getElementById('shell3d');
+    const topBtn = document.getElementById('topBtn');
+    const typewriter = document.getElementById('typewriter');
+
     const audioToggle = document.getElementById('audioToggle');
     const audioIcon = document.getElementById('audioIcon');
     const bgAudio = document.getElementById('bgAudio');
 
     const messageText = `كل عام وأنت بخير،
 
-هناك أشخاص نُهديهم كلمات،
-وهناك أشخاص نُهديهم شيئًا يليق بمكانتهم لأن الكلمات وحدها لا تكفي.
-وأنت من النوع الثاني… بل من النوع النادر جدًا.
+هذه الهدية صممتها وكتبتها خصيصًا لك،
+مو حتى أرسل تهنئة فقط…
+بل حتى أوصل لك شعورًا حقيقيًا يليق بمكانتك عندي.
 
-أريدك أن تعرف هذا بوضوح:
-أنت عندي لست شخصًا عاديًا،
-ولا اسمًا عابرًا،
-ولا حضورًا يمر مرورًا بسيطًا.
+أريدك تعرف شيئًا واضحًا جدًا:
+أنت مو شخص عابر،
+ولا اسم يمر مرورًا عاديًا،
+ولا حضور يُنسى بسهولة.
 
-أنت شخص له وزن،
-وله قدر،
-وله مكانة محترمة وكبيرة جدًا.
+أنت شخص له قيمة،
+وله قدر محفوظ،
+وله مكانة كبيرة وغالية في القلب.
 
-وجودك يترك أثرًا جميلًا،
-وكلامك له قيمة،
-وحضورك يحمل هيبة وراحة في الوقت نفسه،
-وهذه ميزة لا تجتمع في كثير من الناس.
+هناك أشخاص نبادلهم الكلام،
+لكن نادر جدًا أن نجد شخصًا يستحق أن نصمم له شيئًا كاملًا من أجله فقط…
+وأنت من هذا النوع النادر.
 
-لهذا كانت هذه الهدية مختلفة،
-حتى تشعر من أول لحظة أن المقصود بها شخص عظيم فعلًا،
-وشخص عزيز بصورة أكبر من كل وصف.
+وجودك جميل،
+وأثرك محترم،
+وقربك يترك راحة وهيبة في الوقت نفسه.
+
+لهذا كانت هذه الهدية لك أنت،
+حتى تشعر من تصميمها ومن كلامها أنها مكتوبة لك وحدك،
+وأن كل تفصيل فيها يقول لك:
+أنت عظيم، عزيز، ومحل تقدير كبير جدًا.
 
 أتمنى لك في هذا العيد فرحة تليق بقلبك،
-وطمأنينة تليق بروحك،
-وخيرًا يرافقك أينما تمضي.
+وراحة تليق بروحك،
+وأيامًا مليانة خير، نور، ونجاح.
 
 وعسى تبقى دائمًا محفوظ المكانة،
-محبوب الحضور،
-عالي القدر،
-ومحل تقدير لا ينقطع.
+غالي القدر،
+ومحل عزاز لا ينتهي.
 
-عيد فطر مبارك عليك…
-وعلى كل شيء جميل فيك.`;
+عيد فطر مبارك عليك.`;
 
     let typingTimer = null;
     let hintVisible = false;
-    let audioEnabled = false;
 
     function createHearts() {
-      const icons = ['❤', '💖', '💕', '💗', '💞'];
-      for (let i = 0; i < 26; i++) {
-        const el = document.createElement('div');
-        el.className = 'heart';
-        el.textContent = icons[Math.floor(Math.random() * icons.length)];
-        el.style.left = Math.random() * 100 + '%';
-        el.style.fontSize = (18 + Math.random() * 22) + 'px';
-        el.style.animationDuration = (10 + Math.random() * 10) + 's';
-        el.style.animationDelay = (Math.random() * 12) + 's';
-        heartsLayer.appendChild(el);
+      const icons = ['❤','💖','💕','💗','💞'];
+      for (let i = 0; i < 24; i++) {
+        const item = document.createElement('div');
+        item.className = 'heart';
+        item.textContent = icons[Math.floor(Math.random() * icons.length)];
+        item.style.left = Math.random() * 100 + '%';
+        item.style.fontSize = 18 + Math.random() * 20 + 'px';
+        item.style.animationDuration = 10 + Math.random() * 10 + 's';
+        item.style.animationDelay = Math.random() * 12 + 's';
+        heartsLayer.appendChild(item);
       }
     }
 
     function createParticles() {
-      for (let i = 0; i < 36; i++) {
-        const el = document.createElement('div');
-        el.className = 'particle';
+      for (let i = 0; i < 30; i++) {
+        const item = document.createElement('div');
+        item.className = 'particle';
         const size = 3 + Math.random() * 5;
-        el.style.width = size + 'px';
-        el.style.height = size + 'px';
-        el.style.left = Math.random() * 100 + '%';
-        el.style.animationDuration = (9 + Math.random() * 10) + 's';
-        el.style.animationDelay = (Math.random() * 10) + 's';
-        particleLayer.appendChild(el);
-      }
-    }
-
-    function createOrbs() {
-      for (let i = 0; i < 14; i++) {
-        const el = document.createElement('div');
-        el.className = 'orb';
-        const size = 10 + Math.random() * 18;
-        el.style.width = size + 'px';
-        el.style.height = size + 'px';
-        el.style.left = Math.random() * 100 + '%';
-        el.style.animationDuration = (16 + Math.random() * 10) + 's';
-        el.style.animationDelay = (Math.random() * 8) + 's';
-        orbsLayer.appendChild(el);
+        item.style.width = size + 'px';
+        item.style.height = size + 'px';
+        item.style.left = Math.random() * 100 + '%';
+        item.style.animationDuration = 9 + Math.random() * 9 + 's';
+        item.style.animationDelay = Math.random() * 10 + 's';
+        particleLayer.appendChild(item);
       }
     }
 
     function revealHint() {
       hintVisible = !hintVisible;
-      hintText.textContent = hintVisible ? 'I love you' : '•••• ••• •••';
-      showHintBtn.textContent = hintVisible ? 'إخفاء التلميح' : 'إظهار التلميح';
+      hintCode.textContent = hintVisible ? 'I love you' : '•••• ••• •••';
+      hintBtn.textContent = hintVisible ? 'إخفاء التلميح' : 'إظهار التلميح';
     }
 
-    function unlockGift() {
-      const value = passwordInput.value.trim();
-      if (value === PASSWORD) {
-        errorText.textContent = '';
-        lockScreen.classList.add('hide');
-        giftScreen.style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        launchBurst();
-        animateMeters();
-        startTyping();
-        tryPlayAudio();
-      } else {
-        errorText.textContent = 'كلمة السر غير صحيحة… جرّب مرة ثانية.';
+    function launchBurst() {
+      const icons = ['💖','✨','💛','🌙','⭐'];
+      for (let i = 0; i < 28; i++) {
+        const item = document.createElement('div');
+        item.className = 'flash';
+        item.textContent = icons[Math.floor(Math.random() * icons.length)];
+        item.style.left = (42 + Math.random() * 16) + '%';
+        item.style.top = (34 + Math.random() * 16) + '%';
+        item.style.fontSize = (18 + Math.random() * 18) + 'px';
+        burstLayer.appendChild(item);
+
+        requestAnimationFrame(() => {
+          const x = (Math.random() - 0.5) * 620;
+          const y = (Math.random() - 0.5) * 340;
+          const r = (Math.random() - 0.5) * 560;
+          item.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg) scale(${0.8 + Math.random()})`;
+          item.style.opacity = '0';
+        });
+
+        setTimeout(() => item.remove(), 1400);
       }
+    }
+
+    function animateMeters() {
+      document.querySelectorAll('.meter-fill').forEach((meter, index) => {
+        const target = meter.dataset.width || 100;
+        setTimeout(() => {
+          meter.style.width = target + '%';
+        }, 180 + index * 180);
+      });
     }
 
     function startTyping() {
@@ -1961,36 +1435,91 @@ body::after {
       let i = 0;
       typingTimer = setInterval(() => {
         if (i < messageText.length) {
-          const current = messageText.slice(0, i + 1).replace(/\n/g, '<br>');
-          typewriter.innerHTML = current + '<span class="caret">|</span>';
+          typewriter.innerHTML = messageText.slice(0, i + 1).replace(/\n/g, '<br>') + '<span class="caret">|</span>';
           i++;
         } else {
           clearInterval(typingTimer);
           typewriter.innerHTML = messageText.replace(/\n/g, '<br>');
         }
-      }, 28);
+      }, 30);
     }
 
-    function animateMeters() {
-      document.querySelectorAll('.meter-fill').forEach((meter, index) => {
-        const width = meter.getAttribute('data-width') || 100;
-        setTimeout(() => {
-          meter.style.width = width + '%';
-        }, 180 + index * 180);
+    function openGift() {
+      const value = passwordInput.value.trim();
+      if (value === PASSWORD) {
+        errorText.textContent = '';
+        lockScreen.classList.add('hidden');
+        giftScreen.style.display = 'block';
+        launchBurst();
+        animateMeters();
+        startTyping();
+        tryPlayAudio();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        errorText.textContent = 'كلمة السر غير صحيحة… جرّب مرة ثانية.';
+      }
+    }
+
+    function restartExperience() {
+      launchBurst();
+      animateMeters();
+      startTyping();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollTopNow() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function tryPlayAudio() {
+      if (!bgAudio) return;
+      bgAudio.volume = 0.5;
+      bgAudio.play().then(() => {
+        audioIcon.textContent = '♫';
+      }).catch(() => {
+        audioIcon.textContent = '♪';
       });
     }
 
-    function launchBurst() {
-      const icons = ['💖', '✨', '💛', '🌙', '⭐'];
-      for (let i = 0; i < 36; i++) {
-        const el = document.createElement('div');
-        el.className = 'flash-item';
-        el.textContent = icons[Math.floor(Math.random() * icons.length)];
-        el.style.left = (42 + Math.random() * 16) + '%';
-        el.style.top = (32 + Math.random() * 18) + '%';
-        el.style.fontSize = (18 + Math.random() * 18) + 'px';
-        burstLayer.appendChild(el);
+    function toggleAudio() {
+      if (!bgAudio) return;
+      if (bgAudio.paused) {
+        bgAudio.play().then(() => { audioIcon.textContent = '♫'; }).catch(() => { audioIcon.textContent = '♪'; });
+      } else {
+        bgAudio.pause();
+        audioIcon.textContent = '♪';
+      }
+    }
 
-        requestAnimationFrame(() => {
-          const x = (Math.random() - 0.5) * 720;
-          const y = (Math.r
+    function interactive3D() {
+      document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 8;
+        const y = (e.clientY / window.innerHeight - 0.5) * -7;
+        shell3d.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
+      });
+
+      document.addEventListener('mouseleave', () => {
+        shell3d.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      });
+    }
+
+    openBtn.addEventListener('click', openGift);
+    hintBtn.addEventListener('click', revealHint);
+    passwordInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') openGift();
+    });
+
+    flashBtn.addEventListener('click', launchBurst);
+    replayBtn.addEventListener('click', () => {
+      startTyping();
+      launchBurst();
+    });
+    restartBtn.addEventListener('click', restartExperience);
+    topBtn.addEventListener('click', scrollTopNow);
+    audioToggle.addEventListener('click', toggleAudio);
+
+    createHearts();
+    createParticles();
+    interactive3D();
+  </script></body>
+</html>

@@ -1,159 +1,521 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>هدية عيد الفطر</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>هدية عيد الفطر</title>
+  <style>
+    :root {
+      --bg1: #12061d;
+      --bg2: #2a0d3f;
+      --gold: #ffd67a;
+      --rose: #ff6fae;
+      --rose2: #ffb6d2;
+      --white: #fffaf7;
+      --glass: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.18);
+      --shadow: 0 15px 50px rgba(0,0,0,.35);
+    }* { box-sizing: border-box; }
 
-<style>
-body {
-    margin:0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color:white;
-    text-align:center;
-    overflow:hidden;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: "Tahoma", "Arial", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255,111,174,.15), transparent 30%),
+    radial-gradient(circle at top right, rgba(255,214,122,.15), transparent 28%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: var(--white);
+  overflow-x: hidden;
 }
 
-.container {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.06) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 40%, rgba(255,255,255,.06) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 80%, rgba(255,255,255,.06) 0 2px, transparent 3px);
+  background-size: 180px 180px;
+  pointer-events: none;
+  opacity: .8;
 }
 
-input {
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    outline:none;
-    font-size:16px;
-}
-
-button {
-    padding:12px 20px;
-    border:none;
-    border-radius:10px;
-    background:#ff4b5c;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-}
-
-.hidden {
-    display:none;
-}
-
-h1 {
-    font-size:40px;
-    color:#ffccd5;
-}
-
-p {
-    font-size:20px;
-    line-height:1.8;
-}
-
-.hearts {
-    position:absolute;
-    width:100%;
-    height:100%;
-    overflow:hidden;
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .heart {
-    position:absolute;
-    width:20px;
-    height:20px;
-    background:red;
-    transform:rotate(45deg);
-    animation: float 6s linear infinite;
+  position: absolute;
+  bottom: -50px;
+  color: rgba(255, 182, 210, 0.28);
+  font-size: clamp(18px, 2vw, 30px);
+  animation: floatUp linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255,111,174,.3));
 }
 
-.heart::before,
-.heart::after {
-    content:"";
-    position:absolute;
-    width:20px;
-    height:20px;
-    background:red;
-    border-radius:50%;
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg) scale(.8); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120vh) rotate(360deg) scale(1.2); opacity: 0; }
 }
 
-.heart::before { top:-10px; }
-.heart::after { left:-10px; }
-
-@keyframes float {
-    0% {transform:translateY(100vh) rotate(45deg);}
-    100% {transform:translateY(-10vh) rotate(45deg);}
+.screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
 }
-</style>
+
+.card {
+  width: min(100%, 980px);
+  background: linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.07));
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.08), transparent);
+  transform: translateX(-100%);
+  animation: shine 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  to { transform: translateX(100%); }
+}
+
+.lock-box {
+  padding: 45px 24px;
+  text-align: center;
+}
+
+.moon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff6ca, #ffd67a 60%, #ffbf43);
+  position: relative;
+  box-shadow: 0 0 30px rgba(255,214,122,.35);
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  top: 8px;
+  right: -10px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 52px);
+  margin: 8px 0 12px;
+  color: var(--gold);
+  text-shadow: 0 0 15px rgba(255,214,122,.18);
+}
+
+.subtitle {
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.9;
+  color: #fff7f0;
+  max-width: 700px;
+  margin: 0 auto 26px;
+}
+
+.input-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+input[type="password"] {
+  width: min(100%, 360px);
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.12);
+  color: white;
+  padding: 16px 18px;
+  font-size: 17px;
+  border-radius: 16px;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+input::placeholder { color: rgba(255,255,255,.65); }
+
+button {
+  border: none;
+  padding: 16px 30px;
+  font-size: 17px;
+  border-radius: 16px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--rose), #ff4b8c);
+  color: white;
+  box-shadow: 0 10px 25px rgba(255,75,140,.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(255,75,140,.45);
+}
+
+.hint {
+  margin-top: 14px;
+  color: #ffe6ef;
+  opacity: .9;
+  font-size: 14px;
+}
+
+.error {
+  min-height: 24px;
+  margin-top: 12px;
+  color: #ffd4e2;
+  font-weight: bold;
+}
+
+.gift-page {
+  display: none;
+  padding: 0;
+}
+
+.hero {
+  padding: 70px 28px 40px;
+  text-align: center;
+  position: relative;
+  background:
+    radial-gradient(circle at center top, rgba(255,214,122,.12), transparent 35%),
+    linear-gradient(180deg, rgba(255,255,255,.05), transparent);
+}
+
+.badge {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.16);
+  color: var(--rose2);
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.3;
+  color: var(--gold);
+}
+
+.hero p {
+  margin: 16px auto 0;
+  max-width: 760px;
+  font-size: clamp(17px, 2vw, 23px);
+  line-height: 2;
+  color: #fff8f2;
+}
+
+.signature {
+  margin-top: 24px;
+  font-size: clamp(18px, 2.2vw, 28px);
+  color: var(--rose2);
+  font-weight: bold;
+}
+
+.content {
+  padding: 0 24px 40px;
+}
+
+.quote-box,
+.gallery-box,
+.music-box,
+.message-box {
+  margin-top: 22px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 26px;
+  padding: 24px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+}
+
+.section-title {
+  margin: 0 0 16px;
+  font-size: clamp(22px, 3vw, 34px);
+  color: var(--gold);
+}
+
+.main-quote {
+  font-size: clamp(22px, 3vw, 40px);
+  line-height: 1.8;
+  text-align: center;
+  color: #fff4e4;
+  font-weight: bold;
+  text-shadow: 0 0 18px rgba(255,214,122,.12);
+}
+
+.sub-quote {
+  margin-top: 12px;
+  text-align: center;
+  font-size: clamp(17px, 2vw, 22px);
+  color: var(--rose2);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  min-height: 290px;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+
+.photo-card:hover img { transform: scale(1.06); }
+
+.photo-card span {
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 12px;
+  background: rgba(0,0,0,.38);
+  color: white;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 14px;
+  backdrop-filter: blur(8px);
+}
+
+.message-box p {
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 2.1;
+  margin: 0;
+  color: #fff8f2;
+  text-align: center;
+}
+
+.music-note {
+  margin-bottom: 14px;
+  color: var(--rose2);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+audio {
+  width: 100%;
+  border-radius: 14px;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.2));
+}
+
+.footer {
+  padding: 24px;
+  text-align: center;
+  color: rgba(255,255,255,.85);
+  font-size: 15px;
+}
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,214,122,.85);
+  box-shadow: 0 0 16px rgba(255,214,122,.9);
+  animation: twinkle 2.5s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: .2; transform: scale(.7); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+@media (max-width: 700px) {
+  .lock-box { padding: 34px 18px; }
+  .hero { padding-top: 52px; }
+  .quote-box,
+  .gallery-box,
+  .music-box,
+  .message-box { padding: 18px; }
+}
+
+  </style>
 </head>
-
 <body>
-
-<div class="container" id="login">
-    <h2>🔐 أدخل كلمة السر لفتح الهدية</h2>
-    <input type="password" id="pass" placeholder="كلمة السر">
-    <br><br>
-    <button onclick="checkPass()">فتح</button>
-</div>
-
-<div class="container hidden" id="gift">
-    <h1>🎉 عيد فطر مبارك 🎉</h1>
-    
-    <p>
-    من علي حازم ❤️<br><br>
-    
-    كل عام وانت بخير يا أغلى الناس،  
-    يا سندي وأخوي قبل كل شي 🤍  
-    وجودك بحياتي نعمة ما تتعوض،  
-    وضحكتك هي العيد الحقيقي إلي 🌙✨  
-    <br><br>
-    
-    مو الجمعة ولا السبت العيد...  
-    العيد بشوفتك 💙  
-    <br><br>
-    
-    أحبك حب أخوّة صافي،  
-    حب ما يتغير مهما يصير 🤝🔥  
-    <br><br>
-    
-    الله يديمك إلي وما يحرمني منك  
-    وكل عام واحنا سوا ❤️
+  <div class="floating-hearts" id="hearts"></div>  <div class="screen">
+    <div class="card">
+      <div class="sparkles" id="sparkles"></div><section class="lock-box" id="lockScreen">
+    <div class="moon"></div>
+    <h1 class="title">🎁 هدية إلكترونية لعيد الفطر</h1>
+    <p class="subtitle">
+      هدية خاصة مصممة بذوق راقٍ ولمسة دافئة،<br>
+      حتى تكون معايدة إلكترونية مميزة ومختلفة بكل تفاصيلها.
     </p>
+
+    <div class="input-wrap">
+      <input id="passwordInput" type="password" placeholder="اكتب كلمة السر هنا" />
+      <button onclick="openGift()">فتح الهدية</button>
+    </div>
+
+    <div class="hint">كلمة السر: <b>I love you</b></div>
+    <div class="error" id="errorMsg"></div>
+  </section>
+
+  <section class="gift-page" id="giftPage">
+    <div class="hero">
+      <div class="badge">عيد فطر مبارك ✨</div>
+      <h1>كل عام وأنتم بخير</h1>
+      <p>
+        في هذا العيد أهديك أجمل الأمنيات، وأصدق المشاعر، وألطف الكلمات،<br>
+        لتبقى فرحة العيد أجمل بوجودك، وتبقى المعايدة أرقى لأنها واصلة من القلب.
+      </p>
+      <div class="signature">من <span style="color: var(--gold);">علي حازم</span></div>
+    </div>
+
+    <div class="content">
+      <div class="quote-box">
+        <h2 class="section-title">أجمل كلمات التهنئة</h2>
+        <div class="main-quote">كل عام وأنتم بخير، وعيدكم فرح، وأيامكم سعادة، وقلوبكم مليانة نور وطمأنينة ❤️</div>
+        <div class="sub-quote">أصدق التهاني وأجمل الأمنيات بعيد فطر مبارك يليق بقلوبكم الجميلة.</div>
+      </div>
+
+      <div class="message-box">
+        <h2 class="section-title">رسالة العيد</h2>
+        <p>
+          كل عام وأنت بخير، وعيدك أجمل من كل كلام، وألطف من كل شعور جميل.<br>
+          يا رب يرزقك هذا العيد راحة بال، وفرحة ما تنتهي، وضحكة تبقى بوجهك دوم.<br>
+          أتمنى لك أيامًا مليانة خير، ونجاح، وطمأنينة، ومحبة من كل من حولك.<br>
+          مكانتك غالية، ووجودك لطيف، وقربك يترك أثر جميل بالقلب.<br>
+          لك كل الود، وكل العزاز، وكل الأمنيات الحلوة في هذا العيد المبارك.<br><br>
+
+          عيد فطر مبارك عليك، وعلى قلبك، وعلى تفاصيل أيامك كلها.<br>
+          عساها سنة خير وفرح وتحقيق أمنيات، وعسى الفرح ما يفارقك أبدًا. ✨
+        </p>
+      </div>
+
+      </div>
+
+    <div class="footer">
+      صُممت هذه الهدية بكل حب وذوق راقٍ بمناسبة عيد الفطر المبارك 💖
+    </div>
+  </section>
 </div>
 
-<div class="hearts" id="hearts"></div>
+  </div>  <script>
+    const correctPassword = "I love you";
 
-<audio id="music" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b6e8c.mp3" type="audio/mpeg">
-</audio>
+    function openGift() {
+      const input = document.getElementById("passwordInput").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+      const lockScreen = document.getElementById("lockScreen");
+      const giftPage = document.getElementById("giftPage");
 
-<script>
-function checkPass() {
-    let pass = document.getElementById("pass").value;
-    if(pass === "love") {
-        document.getElementById("login").classList.add("hidden");
-        document.getElementById("gift").classList.remove("hidden");
-        document.getElementById("music").play();
-        createHearts();
-    } else {
-        alert("❌ كلمة السر غلط!");
+      if (input === correctPassword) {
+        errorMsg.textContent = "";
+        lockScreen.style.display = "none";
+        giftPage.style.display = "block";
+        launchConfettiHearts();
+      } else {
+        errorMsg.textContent = "كلمة السر غير صحيحة... جرّب مرة ثانية 💔";
+      }
     }
-}
 
-function createHearts() {
-    let container = document.getElementById("hearts");
-    for(let i=0;i<30;i++){
-        let heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.style.left = Math.random()*100+"%";
-        heart.style.animationDuration = (Math.random()*3+3)+"s";
+    document.getElementById("passwordInput").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") openGift();
+    });
+
+    function createFloatingHearts() {
+      const container = document.getElementById("hearts");
+      const hearts = ["❤", "💖", "💕", "💗", "💘"];
+
+      for (let i = 0; i < 24; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDuration = (8 + Math.random() * 8) + "s";
+        heart.style.animationDelay = (Math.random() * 8) + "s";
+        heart.style.fontSize = (18 + Math.random() * 20) + "px";
         container.appendChild(heart);
+      }
     }
-}
-</script>
 
-</body>
+    function createSparkles() {
+      const wrap = document.getElementById("sparkles");
+      for (let i = 0; i < 22; i++) {
+        const s = document.createElement("span");
+        s.className = "sparkle";
+        s.style.top = Math.random() * 100 + "%";
+        s.style.left = Math.random() * 100 + "%";
+        s.style.animationDelay = (Math.random() * 2.5) + "s";
+        s.style.animationDuration = (1.5 + Math.random() * 2.5) + "s";
+        wrap.appendChild(s);
+      }
+    }
+
+    function launchConfettiHearts() {
+      for (let i = 0; i < 18; i++) {
+        const burst = document.createElement("div");
+        burst.textContent = "💖";
+        burst.style.position = "fixed";
+        burst.style.left = (40 + Math.random() * 20) + "%";
+        burst.style.top = (35 + Math.random() * 10) + "%";
+        burst.style.fontSize = (20 + Math.random() * 18) + "px";
+        burst.style.pointerEvents = "none";
+        burst.style.zIndex = "9999";
+        burst.style.transition = "transform 1.2s ease-out, opacity 1.2s ease-out";
+        document.body.appendChild(burst);
+
+        requestAnimationFrame(() => {
+          const x = (Math.random() - 0.5) * 380;
+          const y = (Math.random() - 0.5) * 280;
+          burst.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 360}deg)`;
+          burst.style.opacity = "0";
+        });
+
+        setTimeout(() => burst.remove(), 1300);
+      }
+    }
+
+    createFloatingHearts();
+    createSparkles();
+  </script></body>
 </html>
